@@ -892,7 +892,7 @@ impl Handler {
                     };
 
                     let url = format!(
-                        "{}/_bulk?format=cbor&filter_path={}",
+                        "{}/_bulk?format=json&filter_path={}",
                         base_url, BULK_FILTER_PATH
                     );
 
@@ -917,13 +917,12 @@ impl Handler {
 
                                 // NB:  this is stupid that ES forces us to parse the response for requests
                                 // that contain an error, but here we are
-                                let result: serde_cbor::Result<BulkResponse> =
-                                    serde_cbor::from_reader(body);
+                                let result: serde_json::Result<BulkResponse> =
+                                    serde_json::de::from_reader(body);
                                 match result {
                                     // result deserialized okay, lets see if it's what we need
                                     Ok(response) => {
-                                        if !response.errors.unwrap_or(false)
-                                            && response.error.is_none()
+                                        if !response.errors.unwrap_or(false) && response.error.is_none()
                                         {
                                             successful_requests.fetch_add(1, Ordering::SeqCst);
                                             Ok(())

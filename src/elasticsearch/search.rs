@@ -388,13 +388,13 @@ impl ElasticsearchSearchRequest {
                 },
             )
         } else {
-            url.push_str("&format=cbor");
+            url.push_str("&format=json");
             Elasticsearch::execute_json_request(
                 Elasticsearch::client().post(&url),
                 Some(body),
                 |body| {
                     let mut response: ElasticsearchSearchResponse =
-                        serde_cbor::from_reader(body).expect("failed to deserialize CBOR response");
+                        serde_json::de::from_reader(body).expect("failed to deserialize JSON response");
 
                     // make sure there's no failures listed in the response
                     if response.shards.is_some()

@@ -113,14 +113,8 @@ fn ctid(as_u64: i64) -> pg_sys::ItemPointerData {
 }
 
 #[cfg(test)]
-mod testing;
-
-#[cfg(test)]
 pub mod pg_test {
-    use crate::testing;
-
-    pub fn setup(options: Vec<&str>) {
-        testing::initialize_tests(options);
+    pub fn setup(_: Vec<&str>) {
     }
 
     pub fn postgresql_conf_options() -> Vec<&'static str> {

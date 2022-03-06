@@ -14,9 +14,20 @@ jobs:
 
     strategy:
       matrix:
-        version: [ 12, 13, 14, 15 ]
-        os: [ "ubuntu-latest" ]
-        es_version: [ "7.17.0" ]
+        version: [ 12, 13, 14, 15]
+        os: ["ubuntu-latest"]
+        es_version:
+        - { image: 'elasticsearch:7.17.0', env: '' }
+        - { image: 'opensearchproject/opensearch:1.1.0', env: '--env DISABLE_SECURITY_PLUGIN=true --env plugins.security.ssl.http.enabled=false' }
+
+    services:
+      elasticsearch:
+        image: ${{ matrix.es_version.image }}
+        ports:
+          - '19200:9200'
+        options: >-
+          --env discovery.type=single-node
+          ${{ matrix.es_version.env }}
 
     steps:
       - uses: actions/checkout@v2
@@ -40,12 +51,6 @@ jobs:
         # Install Postgres
       - name: install postgres
         run: sudo apt-get install -y clang llvm gcc make build-essential libz-dev zlib1g-dev strace libssl-dev pkg-config postgresql-${{ matrix.version }} postgresql-server-dev-${{ matrix.version }}
-
-      # download Elasticsearch
-      - name: download Elasticsearch
-        run: curl -s https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${{ matrix.es_version }}-linux-x86_64.tar.gz | tar xzf -
-      - name: rename Elasticsearch
-        run: mv elasticsearch-${{ matrix.es_version }} elasticsearch
 
       # update cargo indexes so we're sure we get the latest things from 'git' repo dependencies
       - name: cargo update

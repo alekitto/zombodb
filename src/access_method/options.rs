@@ -1318,12 +1318,13 @@ mod tests {
         CREATE INDEX idxtest
                   ON test
                USING zombodb ((test.*))
-                WITH (url='http://localhost:19200/',
+                WITH (url='{}',
                       type_name='test_type_name',
                       alias='test_alias',
                       uuid='{}',
                       refresh_interval='5s',
                       translog_durability='async');",
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
             uuid
         ))?;
 
@@ -1331,7 +1332,10 @@ mod tests {
             Spi::get_one::<pg_sys::Oid>("SELECT 'idxtest'::regclass::oid")?.expect("oid was null");
         let indexrel = PgRelation::from_pg(pg_sys::RelationIdGetRelation(index_oid));
         let options = ZDBIndexOptions::from_relation(&indexrel);
-        assert_eq!(options.url(), "http://localhost:19200/");
+        assert_eq!(
+            options.url(),
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        );
         assert_eq!(options.type_name(), "test_type_name");
         assert_eq!(options.alias(), "test_alias");
         assert_eq!(options.uuid(), &uuid.to_string());
@@ -1354,12 +1358,13 @@ mod tests {
     #[pg_test]
     #[initialize(es = true)]
     unsafe fn test_index_options_defaults() -> spi::Result<()> {
-        Spi::run(
+        Spi::run(&format!(
             "CREATE TABLE test();
         CREATE INDEX idxtest
                   ON test
-               USING zombodb ((test.*)) WITH (url='http://localhost:19200/');",
-        )?;
+               USING zombodb ((test.*)) WITH (url='{}');",
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        ))?;
 
         let heap_oid = Spi::get_one::<pg_sys::Oid>("SELECT 'test'::regclass::oid")?
             .expect("SPI datum was NULL");
@@ -1398,12 +1403,13 @@ mod tests {
     #[pg_test]
     #[initialize(es = true)]
     unsafe fn test_index_name() -> spi::Result<()> {
-        Spi::run(
+        Spi::run(&format!(
             "CREATE TABLE test();
         CREATE INDEX idxtest
                   ON test
-               USING zombodb ((test.*)) WITH (url='http://localhost:19200/');",
-        )?;
+               USING zombodb ((test.*)) WITH (url='{}');",
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        ))?;
 
         let index_relation = PgRelation::open_with_name("idxtest").expect("no such relation");
         let options = ZDBIndexOptions::from_relation(&index_relation);
@@ -1415,29 +1421,34 @@ mod tests {
     #[pg_test]
     #[initialize(es = true)]
     unsafe fn test_index_url() -> spi::Result<()> {
-        Spi::run(
+        Spi::run(&format!(
             "CREATE TABLE test();
         CREATE INDEX idxtest
                   ON test
-               USING zombodb ((test.*)) WITH (url='http://localhost:19200/');",
-        )?;
+               USING zombodb ((test.*)) WITH (url='{}');",
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        ))?;
 
         let index_relation = PgRelation::open_with_name("idxtest").expect("no such relation");
         let options = ZDBIndexOptions::from_relation(&index_relation);
 
-        assert_eq!(options.url(), "http://localhost:19200/");
+        assert_eq!(
+            options.url(),
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        );
         Ok(())
     }
 
     #[pg_test]
     #[initialize(es = true)]
     unsafe fn test_index_type_name() -> spi::Result<()> {
-        Spi::run(
+        Spi::run(&format!(
             "CREATE TABLE test();
         CREATE INDEX idxtest
                   ON test
-               USING zombodb ((test.*)) WITH (url='http://localhost:19200/');",
-        )?;
+               USING zombodb ((test.*)) WITH (url='{}');",
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        ))?;
 
         let index_relation = PgRelation::open_with_name("idxtest").expect("no such relation");
         let options = ZDBIndexOptions::from_relation(&index_relation);

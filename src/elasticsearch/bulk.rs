@@ -922,7 +922,8 @@ impl Handler {
                                 match result {
                                     // result deserialized okay, lets see if it's what we need
                                     Ok(response) => {
-                                        if !response.errors.unwrap_or(false) && response.error.is_none()
+                                        if !response.errors.unwrap_or(false)
+                                            && response.error.is_none()
                                         {
                                             successful_requests.fetch_add(1, Ordering::SeqCst);
                                             Ok(())

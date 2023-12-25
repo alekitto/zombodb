@@ -109,7 +109,7 @@ mod tests {
         assert!(ZDB_DEFAULT_ELASTICSEARCH_URL.get().is_some());
         assert_eq!(
             ZDB_DEFAULT_ELASTICSEARCH_URL.get().unwrap(),
-            c"http://localhost:19200/"
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string())
         );
     }
 

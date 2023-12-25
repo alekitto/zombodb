@@ -15,12 +15,13 @@ name = "pgrx_embed_zombodb"
 path = "./src/bin/pgrx_embed.rs"
 
 [features]
-default = ["pg14"]
+default = ["pg15", "rustls"]
 pg13 = ["pgrx/pg13", "pgrx-tests/pg13"]
 pg14 = ["pgrx/pg14", "pgrx-tests/pg14"]
 pg15 = ["pgrx/pg15", "pgrx-tests/pg15"]
 native_tls = ["native-tls", "ureq/native-tls"]
-rustls_native_certs = ["ureq/native-certs"]
+rustls = [ "dep:rustls", "rustls_native_certs","ureq/tls" ]
+rustls_native_certs = [ "rustls-native-certs"]
 pg_test = []
 
 [dependencies]
@@ -48,7 +49,9 @@ sqlformat = "0.3.5"
 unicode-segmentation = "1.12.0"
 ureq = { version = "=2.10.1", features = ["json"] }
 url = "2.5.4"
-native-tls = { version = "0.2.14", optional = true }
+native-tls = { version = "0.2.11", optional = true }
+rustls = { version = "0.23.34", optional = true }
+rustls-native-certs = { version = "0.8.2", optional = true }
 
 [build-dependencies]
 lalrpop = { version = "0.22.1", features = ["lexer", "unicode"] }

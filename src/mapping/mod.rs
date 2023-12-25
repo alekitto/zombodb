@@ -735,7 +735,10 @@ mod tests {
     #[initialize(es = true)]
     unsafe fn test_generate_mapping() -> spi::Result<()> {
         Spi::run("CREATE TABLE test (id serial8, title text, name varchar);")?;
-        Spi::run("CREATE INDEX idxtest ON test USING zombodb ((test.*)) WITH (url='http://localhost:19200/')")?;
+        Spi::run(&format!(
+            "CREATE INDEX idxtest ON test USING zombodb ((test.*)) WITH (url='{}')",
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        ))?;
         let index_id = Spi::get_one::<pg_sys::Oid>("SELECT 'idxtest'::regclass::oid;")?
             .expect("failed to get idxtest oid from SPI");
         let index = PgRelation::from_pg(pg_sys::RelationIdGetRelation(index_id));

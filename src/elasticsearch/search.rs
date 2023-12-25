@@ -394,7 +394,8 @@ impl ElasticsearchSearchRequest {
                 Some(body),
                 |body| {
                     let mut response: ElasticsearchSearchResponse =
-                        serde_json::de::from_reader(body).expect("failed to deserialize JSON response");
+                        serde_json::de::from_reader(body)
+                            .expect("failed to deserialize JSON response");
 
                     // make sure there's no failures listed in the response
                     if response.shards.is_some()

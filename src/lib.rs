@@ -114,12 +114,16 @@ fn ctid(as_u64: i64) -> pg_sys::ItemPointerData {
 
 #[cfg(test)]
 pub mod pg_test {
-    pub fn setup(_: Vec<&str>) {
-    }
+    pub fn setup(_: Vec<&str>) {}
 
     pub fn postgresql_conf_options() -> Vec<&'static str> {
+        let endpoint = format!(
+            "zdb.default_elasticsearch_url = '{}'",
+            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string())
+        );
+
         vec![
-            "zdb.default_elasticsearch_url = 'http://localhost:19200/'",
+            endpoint.leak(),
             "enable_seqscan = false",
             "enable_indexscan = true",
         ]

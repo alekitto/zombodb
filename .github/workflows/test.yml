@@ -13,12 +13,16 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'nogha')"
 
     strategy:
+      fail-fast: false
       matrix:
         version: [ 12, 13, 14, 15]
         os: ["ubuntu-latest"]
         es_version:
-        - { image: 'elasticsearch:7.17.0', env: '' }
-        - { image: 'opensearchproject/opensearch:1.1.0', env: '--env DISABLE_SECURITY_PLUGIN=true --env plugins.security.ssl.http.enabled=false' }
+        - { image: 'elasticsearch:7.17.0', endpoint: 'http://localhost:19200/' }
+        - { image: 'docker.elastic.co/elasticsearch/elasticsearch:8.11.2', endpoint: 'https://elastic:admin@localhost:19200/' }
+        - { image: 'opensearchproject/opensearch:1.1.0', endpoint: 'https://admin:admin@localhost:19200/' }
+        - { image: 'opensearchproject/opensearch:1.3.11', endpoint: 'https://admin:admin@localhost:19200/' }
+        - { image: 'opensearchproject/opensearch:2.11.1', endpoint: 'https://admin:admin@localhost:19200/' }
 
     services:
       elasticsearch:
@@ -27,10 +31,10 @@ jobs:
           - '19200:9200'
         options: >-
           --env discovery.type=single-node
-          ${{ matrix.es_version.env }}
+          --env ELASTIC_PASSWORD=admin
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: cargo version
         run: cargo --version
@@ -76,4 +80,4 @@ jobs:
 
       # test our code
       - name: cargo test --all
-        run: RUST_BACKTRACE=1 cargo test --all --no-default-features --features "pg${{ matrix.version }} pg_test" -- --nocapture
+        run: RUST_BACKTRACE=1 ES_ENDPOINT="${{ matrix.es_version.endpoint }}" cargo test --all --no-default-features --features "pg${{ matrix.version }} rustls pg_test" -- --nocapture

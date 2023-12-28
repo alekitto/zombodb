@@ -7,9 +7,9 @@ impl ElasticsearchDeleteIndexRequest {
         ElasticsearchDeleteIndexRequest(elasticsearch.clone())
     }
 
-    pub fn execute(self) -> Result<(), ElasticsearchError> {
+    pub fn execute(&self) -> Result<(), ElasticsearchError> {
         match Elasticsearch::execute_json_request(
-            Elasticsearch::client().delete(&self.0.base_url()),
+            self.0.client().delete(&self.0.base_url()),
             None,
             |_| Ok(()),
         ) {

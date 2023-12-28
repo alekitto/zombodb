@@ -17,7 +17,9 @@ impl ElasticsearchCreateIndexRequest {
 
     pub fn execute(self) -> std::result::Result<(), ElasticsearchError> {
         Elasticsearch::execute_json_request(
-            Elasticsearch::client().put(&self.elasticsearch.base_url()),
+            self.elasticsearch
+                .client()
+                .put(&self.elasticsearch.base_url()),
             Some(self.create_request_body()),
             |_| Ok(()),
         )?;
@@ -29,8 +31,12 @@ impl ElasticsearchCreateIndexRequest {
             self.elasticsearch.options.shards()
         );
 
-        Elasticsearch::execute_json_request(Elasticsearch::client().get(&url), None, |_| Ok(()))
-            .expect("failed to wait for yellow status");
+        Elasticsearch::execute_json_request(
+            self.elasticsearch.client().get(&url),
+            None,
+            |_| Ok(()),
+        )
+        .expect("failed to wait for yellow status");
 
         Ok(())
     }

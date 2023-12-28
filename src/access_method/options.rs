@@ -14,9 +14,11 @@ use pgrx::pgrx_sql_entity_graph::metadata::{
 };
 use pgrx::prelude::*;
 use pgrx::*;
+use rustc_hash::FxHashMap;
 use std::collections::{HashMap, HashSet};
 use std::ffi::CStr;
 use std::fmt::Debug;
+use std::iter::FromIterator;
 
 const DEFAULT_BATCH_SIZE: i32 = 8 * 1024 * 1024;
 const DEFAULT_COMPRESSION_LEVEL: i32 = 1;
@@ -289,12 +291,29 @@ impl ZDBIndexOptionsInternal {
 }
 
 #[derive(Clone)]
+pub struct AwsIamAuthDetails {
+    pub access_key_id: Option<String>,
+    pub secret_access_key: Option<String>,
+    pub region: String,
+    pub service_name: String,
+}
+
+#[derive(Clone)]
+pub enum Auth {
+    None,
+    Basic((String, String)),
+    AwsIam(AwsIamAuthDetails),
+}
+
+#[derive(Clone)]
 pub struct ZDBIndexOptions {
     internal: Vec<u8>,
     oid: pg_sys::Oid,
     alias: String,
     uuid: String,
     options: Option<Vec<String>>,
+    url: String,
+    auth: Auth,
 }
 
 #[allow(dead_code)]
@@ -318,12 +337,72 @@ impl ZDBIndexOptions {
         let uuid = internal.uuid(&heap_relation, relation);
         let options = options.map_or_else(|| internal.links(), |v| Some(v));
 
+        let url = internal.url(relation.oid());
+        let mut parsed_url = url::Url::parse(&url).expect("not a valid url");
+
+        let username = parsed_url.username().to_string();
+        let password = parsed_url
+            .password()
+            .map(ToString::to_string)
+            .unwrap_or_default();
+
+        let mut auth = Auth::None;
+        if !username.is_empty() && !password.is_empty() {
+            auth = Auth::Basic((username, password));
+            let _ = parsed_url.set_username("");
+            let _ = parsed_url.set_password(None);
+        }
+
+        let query = FxHashMap::from_iter(parsed_url.query_pairs());
+        match query.get("auth_type").map(|p| p.as_ref()) {
+            Some("aws_iam") => {
+                let access_key_id = query.get("aws_access_key_id").map(ToString::to_string);
+                let access_secret_key = query.get("aws_access_secret_key").map(ToString::to_string);
+                let region = query
+                    .get("aws_region")
+                    .map(ToString::to_string)
+                    .or_else(|| std::env::var("AWS_REGION").ok())
+                    .or_else(|| std::env::var("AWS_DEFAULT_REGION").ok())
+                    .unwrap_or_else(|| "us-east-1".to_string());
+                let service_name = query
+                    .get("aws_service_name")
+                    .map(ToString::to_string)
+                    .unwrap_or_else(|| "es".to_string());
+
+                auth = Auth::AwsIam(AwsIamAuthDetails {
+                    access_key_id,
+                    secret_access_key: access_secret_key,
+                    region,
+                    service_name,
+                });
+            }
+            Some("basic") => {
+                let username = query
+                    .get("username")
+                    .expect("username must be specified")
+                    .to_string();
+                let password = query
+                    .get("password")
+                    .expect("password must be specified")
+                    .to_string();
+                auth = Auth::Basic((username, password));
+            }
+            Some(_) => {
+                panic!(r#"auth_type must be one of "aws_iam" or "basic""#)
+            }
+            None => { /* do nothing */ }
+        }
+
+        parsed_url.set_query(None);
+
         ZDBIndexOptions {
             internal: ZDBIndexOptionsInternal::into_bytes(internal),
             oid: relation.oid(),
             alias,
             uuid,
             options,
+            url: parsed_url.to_string(),
+            auth,
         }
     }
 
@@ -378,7 +457,11 @@ impl ZDBIndexOptions {
     }
 
     pub fn url(&self) -> String {
-        self.internal().url(self.oid)
+        self.url.clone()
+    }
+
+    pub fn auth(&self) -> &Auth {
+        &self.auth
     }
 
     pub fn type_name(&self) -> String {
@@ -678,15 +761,6 @@ extern "C" fn validate_url(url: *const std::os::raw::c_char) {
     let url = unsafe { CStr::from_ptr(url) }
         .to_str()
         .expect("failed to convert url to utf8");
-
-    if url == "default" {
-        // "default" is a fine value
-        return;
-    }
-
-    if !url.ends_with('/') {
-        panic!("url must end with a forward slash");
-    }
 
     if let Err(e) = url::Url::parse(url) {
         panic!("{}", e.to_string())
@@ -1332,10 +1406,15 @@ mod tests {
             Spi::get_one::<pg_sys::Oid>("SELECT 'idxtest'::regclass::oid")?.expect("oid was null");
         let indexrel = PgRelation::from_pg(pg_sys::RelationIdGetRelation(index_oid));
         let options = ZDBIndexOptions::from_relation(&indexrel);
-        assert_eq!(
-            options.url(),
-            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
-        );
+
+        let mut url = url::Url::parse(
+            &std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        )
+        .unwrap();
+        url.set_query(None);
+        url.set_username("");
+        url.set_password(None);
+        assert_eq!(options.url(), url.to_string());
         assert_eq!(options.type_name(), "test_type_name");
         assert_eq!(options.alias(), "test_alias");
         assert_eq!(options.uuid(), &uuid.to_string());
@@ -1432,10 +1511,14 @@ mod tests {
         let index_relation = PgRelation::open_with_name("idxtest").expect("no such relation");
         let options = ZDBIndexOptions::from_relation(&index_relation);
 
-        assert_eq!(
-            options.url(),
-            std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
-        );
+        let mut url = url::Url::parse(
+            &std::env::var("ES_ENDPOINT").unwrap_or("http://localhost:19200".to_string()),
+        )
+        .unwrap();
+        url.set_query(None);
+        url.set_username("");
+        url.set_password(None);
+        assert_eq!(options.url(), url.to_string());
         Ok(())
     }
 

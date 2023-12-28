@@ -37,7 +37,7 @@ impl ElasticsearchCountRequest {
         let mut url = self.elasticsearch.alias_url();
         url.push_str("/_count");
         Elasticsearch::execute_json_request(
-            Elasticsearch::client().post(&url),
+            self.elasticsearch.client().post(&url),
             Some(body),
             |body| {
                 #[derive(Deserialize)]

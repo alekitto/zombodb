@@ -21,7 +21,7 @@ mod update_settings;
 pub mod aggregate_search;
 pub mod search;
 
-use crate::access_method::options::ZDBIndexOptions;
+use crate::access_method::options::{Auth, ZDBIndexOptions};
 use crate::elasticsearch::aggregate_search::ElasticsearchAggregateSearchRequest;
 use crate::elasticsearch::aliases::ElasticsearchAliasRequest;
 use crate::elasticsearch::analyze::ElasticsearchAnalyzerRequest;
@@ -43,6 +43,13 @@ use crate::executor_manager::get_executor_manager;
 use crate::gucs::ZDB_LOG_LEVEL;
 use crate::utils::is_nested_field;
 use crate::zdbquery::ZDBPreparedQuery;
+use aws_config::meta::credentials::CredentialsProviderChain;
+use aws_credential_types::provider::ProvideCredentials;
+use aws_credential_types::Credentials;
+use aws_sigv4::http_request::{sign, SignableBody, SignableRequest, SigningSettings};
+use aws_sigv4::sign::v4;
+use base64::prelude::BASE64_STANDARD;
+use base64::Engine;
 pub use bulk::*;
 pub use create_index::*;
 use lazy_static::*;
@@ -51,7 +58,10 @@ use serde::de::DeserializeOwned;
 use serde_json::{json, Value};
 use std::collections::HashMap;
 use std::fmt::{Display, Formatter};
-use std::io::Read;
+use std::io::{Cursor, Read};
+use std::sync::Arc;
+use std::time::SystemTime;
+use ureq::{MiddlewareNext, Payload, Request};
 
 lazy_static! {
     static ref NUM_CPUS: usize = num_cpus::get();
@@ -75,6 +85,7 @@ pub mod pg_catalog {
 #[derive(Clone)]
 pub struct Elasticsearch {
     options: ZDBIndexOptions,
+    agent: Arc<ureq::Agent>,
 }
 
 #[derive(Debug)]
@@ -109,13 +120,22 @@ impl ElasticsearchError {
 
 impl Elasticsearch {
     pub fn new(relation: &PgRelation) -> Self {
+        let options = ZDBIndexOptions::from_relation(relation);
+        let agent = Self::create_client(&options);
+
         Elasticsearch {
-            options: ZDBIndexOptions::from_relation(relation),
+            options,
+            agent: Arc::new(agent),
         }
     }
 
     pub fn from_options(options: ZDBIndexOptions) -> Self {
-        Elasticsearch { options }
+        let agent = Self::create_client(&options);
+
+        Elasticsearch {
+            options,
+            agent: Arc::new(agent),
+        }
     }
 
     pub fn index_relation(&self) -> PgRelation {
@@ -130,152 +150,233 @@ impl Elasticsearch {
         self.options.is_shadow_index()
     }
 
-    pub fn client() -> &'static ureq::Agent {
-        lazy_static::lazy_static! {
-            static ref AGENT: ureq::Agent = {
-                let agent_builder = ureq::AgentBuilder::new();
+    pub fn client(&self) -> Arc<ureq::Agent> {
+        self.agent.clone()
+    }
 
-                #[cfg(feature = "native_tls")] // if native_tls feature is enabled - we need to create TlsConnector and pass it to agent_builder
-                {
-                    let mut connector_builder = native_tls::TlsConnector::builder();
-                    #[cfg(feature = "pg_test")]
-                    {
-                        connector_builder
-                            .danger_accept_invalid_certs(true)
-                            .danger_accept_invalid_hostnames(true);
+    fn create_client(options: &ZDBIndexOptions) -> ureq::Agent {
+        let auth = options.auth().clone();
+        let agent_builder = ureq::AgentBuilder::new().middleware(
+            move |mut request: Request, mut payload: Payload, next: MiddlewareNext| {
+                match &auth {
+                    Auth::Basic((username, password)) => {
+                        let user_pass = format!("{}:{}", username, password);
+                        request = request.set(
+                            "Authorization",
+                            &format!("Basic {}", BASE64_STANDARD.encode(user_pass)),
+                        );
                     }
+                    Auth::AwsIam(details) => {
+                        let identity = if details.access_key_id.is_some()
+                            && details.secret_access_key.is_some()
+                        {
+                            Credentials::new(
+                                details.access_key_id.clone().unwrap(),
+                                details.secret_access_key.clone().unwrap(),
+                                None,
+                                None,
+                                "hardcoded-credentials",
+                            )
+                            .into()
+                        } else {
+                            let rt = tokio::runtime::Builder::new_current_thread()
+                                .build()
+                                .unwrap();
+                            rt.block_on(async {
+                                CredentialsProviderChain::default_provider()
+                                    .await
+                                    .provide_credentials()
+                                    .await
+                                    .expect("unable to retrieve credentials")
+                                    .into()
+                            })
+                        };
 
-                    match connector_builder.build() {
-                        Ok(tls_config) => {
-                            return agent_builder
-                            .tls_connector(std::sync::Arc::new(tls_config))
-                            .timeout_read(std::time::Duration::from_secs(3600))  // a 1hr timeout waiting on ES to return
-                            .max_idle_connections_per_host(num_cpus::get())     // 1 for each CPU -- only really used during _bulk
-                            .build();
+                        let signing_settings = SigningSettings::default();
+                        let signing_params = v4::SigningParams::builder()
+                            .identity(&identity)
+                            .region(details.region.as_str())
+                            .name(details.service_name.as_str())
+                            .time(SystemTime::now())
+                            .settings(signing_settings)
+                            .build()
+                            .unwrap()
+                            .into();
+
+                        let mut read = payload.into_read();
+                        let mut buf = vec![];
+                        read.reader.read(&mut buf).expect("cannot read body");
+
+                        // Convert the HTTP request into a signable request
+                        let signable_request = SignableRequest::new(
+                            request.method(),
+                            request.url(),
+                            std::iter::empty(),
+                            SignableBody::Bytes(buf.as_slice()),
+                        )
+                        .expect("signable request");
+
+                        // Sign and then apply the signature to the request
+                        let (signing_instructions, _signature) =
+                            sign(signable_request, &signing_params)
+                                .expect("failed to sign request")
+                                .into_parts();
+                        for (header, value) in signing_instructions.headers() {
+                            request = request.set(header, value);
                         }
-                        Err(e) => {
-                            // log the error
-                            crate::gucs::ZDB_LOG_LEVEL.get().log(&format!(
-                                "[zombodb] can't create native tls connector - {}",
-                                e
-                            ));
+                        for (param, value) in signing_instructions.params() {
+                            request = request.query(param, value);
                         }
+
+                        payload = Payload::Reader(Box::new(Cursor::new(buf)));
                     }
-
-                    agent_builder
-                        .timeout_read(std::time::Duration::from_secs(3600))  // a 1hr timeout waiting on ES to return
-                        .max_idle_connections_per_host(num_cpus::get())     // 1 for each CPU -- only really used during _bulk
-                        .build()
+                    _ => { /* Do nothing */ }
                 }
 
-                #[cfg(feature = "rustls")] // if rustls feature is enabled - we need to create TlsConnector and pass it to agent_builder
-                {
-                    use rustls::pki_types::CertificateDer;
+                next.handle(request, payload)
+            },
+        );
 
-                    fn root_certs() -> rustls::RootCertStore {
-                        let mut root_cert_store = rustls::RootCertStore::empty();
+        #[cfg(feature = "native_tls")]
+        // if native_tls feature is enabled - we need to create TlsConnector and pass it to agent_builder
+        {
+            let mut connector_builder = native_tls::TlsConnector::builder();
+            #[cfg(feature = "pg_test")]
+            {
+                connector_builder
+                    .danger_accept_invalid_certs(true)
+                    .danger_accept_invalid_hostnames(true);
+            }
 
-                        let mut valid_count = 0;
-                        let mut invalid_count = 0;
-                        let certs = rustls_native_certs::load_native_certs().unwrap_or_else(|_| vec![]);
-                        for cert in certs {
-                            // Continue on parsing errors, as native stores often include ancient or syntactically
-                            // invalid certificates, like root certificates without any X509 extensions.
-                            // Inspiration: https://github.com/rustls/rustls/blob/633bf4ba9d9521a95f68766d04c22e2b01e68318/rustls/src/anchors.rs#L105-L112
-                            match root_cert_store.add(CertificateDer::from(cert.0)) {
-                                Ok(_) => valid_count += 1,
-                                Err(_) => {
-                                    invalid_count += 1;
-                                }
-                            }
-                        }
-                        if valid_count == 0 && invalid_count > 0 {
-                            error!(
-                                "no valid certificates loaded by rustls-native-certs. all HTTPS requests will fail."
-                            );
-                        }
-                        root_cert_store
-                    }
-
-                    #[cfg(feature = "pg_test")]
-                    let connector_builder = {
-                        use rustls::client::danger::ServerCertVerifier;
-                        use rustls::client::danger::ServerCertVerified;
-                        use rustls::pki_types;
-                        use rustls::pki_types::ServerName;
-                        use rustls::client::danger::HandshakeSignatureValid;
-                        use rustls::{DigitallySignedStruct, SignatureScheme};
-
-                        #[derive(Debug)]
-                        struct NoopServerVerifier;
-
-                        impl ServerCertVerifier for NoopServerVerifier {
-                            fn verify_server_cert(
-                                &self,
-                                _: &CertificateDer<'_>,
-                                _: &[CertificateDer<'_>],
-                                _: &ServerName,
-                                _: &[u8],
-                                _: pki_types::UnixTime,
-                            ) -> Result<ServerCertVerified, rustls::Error> {
-                                Ok(ServerCertVerified::assertion())
-                            }
-
-                            fn verify_tls12_signature(
-                                &self,
-                                _: &[u8],
-                                _: &CertificateDer<'_>,
-                                _: &DigitallySignedStruct,
-                            ) -> Result<HandshakeSignatureValid, rustls::Error> {
-                                Ok(HandshakeSignatureValid::assertion())
-                            }
-
-                            fn verify_tls13_signature(
-                                &self,
-                                _: &[u8],
-                                _: &CertificateDer<'_>,
-                                _: &DigitallySignedStruct,
-                            ) -> Result<HandshakeSignatureValid, rustls::Error> {
-                                Ok(HandshakeSignatureValid::assertion())
-                            }
-
-                            fn supported_verify_schemes(&self) -> Vec<SignatureScheme> {
-                                vec![
-                                    SignatureScheme::RSA_PKCS1_SHA1,
-                                    SignatureScheme::ECDSA_SHA1_Legacy,
-                                    SignatureScheme::RSA_PKCS1_SHA256,
-                                    SignatureScheme::ECDSA_NISTP256_SHA256,
-                                    SignatureScheme::RSA_PKCS1_SHA384,
-                                    SignatureScheme::ECDSA_NISTP384_SHA384,
-                                    SignatureScheme::RSA_PKCS1_SHA512,
-                                    SignatureScheme::ECDSA_NISTP521_SHA512,
-                                    SignatureScheme::RSA_PSS_SHA256,
-                                    SignatureScheme::RSA_PSS_SHA384,
-                                    SignatureScheme::RSA_PSS_SHA512,
-                                    SignatureScheme::ED25519,
-                                    SignatureScheme::ED448,
-                                ]
-                            }
-                        }
-
-                        rustls::ClientConfig::builder()
-                            .dangerous()
-                            .with_custom_certificate_verifier(std::sync::Arc::new(NoopServerVerifier {}))
-                    };
-
-                    #[cfg(not(feature = "pg_test"))]
-                    let mut connector_builder = rustls::ClientConfig::builder();
-
-                    agent_builder
-                        .tls_config(std::sync::Arc::new(connector_builder.with_no_client_auth()))
-                        .timeout_read(std::time::Duration::from_secs(3600))  // a 1hr timeout waiting on ES to return
-                        .max_idle_connections_per_host(num_cpus::get())     // 1 for each CPU -- only really used during _bulk
-                        .build()
+            match connector_builder.build() {
+                Ok(tls_config) => {
+                    return agent_builder
+                        .tls_connector(std::sync::Arc::new(tls_config))
+                        .timeout_read(std::time::Duration::from_secs(3600)) // a 1hr timeout waiting on ES to return
+                        .max_idle_connections_per_host(num_cpus::get()) // 1 for each CPU -- only really used during _bulk
+                        .build();
                 }
-            };
+                Err(e) => {
+                    // log the error
+                    crate::gucs::ZDB_LOG_LEVEL.get().log(&format!(
+                        "[zombodb] can't create native tls connector - {}",
+                        e
+                    ));
+                }
+            }
+
+            agent_builder
+                .timeout_read(std::time::Duration::from_secs(3600)) // a 1hr timeout waiting on ES to return
+                .max_idle_connections_per_host(num_cpus::get()) // 1 for each CPU -- only really used during _bulk
+                .build()
         }
 
-        &AGENT
+        #[cfg(feature = "rustls")]
+        // if rustls feature is enabled - we need to create TlsConnector and pass it to agent_builder
+        {
+            use rustls::pki_types::CertificateDer;
+
+            fn root_certs() -> rustls::RootCertStore {
+                let mut root_cert_store = rustls::RootCertStore::empty();
+
+                let mut valid_count = 0;
+                let mut invalid_count = 0;
+                let certs = rustls_native_certs::load_native_certs().unwrap_or_else(|_| vec![]);
+                for cert in certs {
+                    // Continue on parsing errors, as native stores often include ancient or syntactically
+                    // invalid certificates, like root certificates without any X509 extensions.
+                    // Inspiration: https://github.com/rustls/rustls/blob/633bf4ba9d9521a95f68766d04c22e2b01e68318/rustls/src/anchors.rs#L105-L112
+                    match root_cert_store.add(CertificateDer::from(cert.0)) {
+                        Ok(_) => valid_count += 1,
+                        Err(_) => {
+                            invalid_count += 1;
+                        }
+                    }
+                }
+                if valid_count == 0 && invalid_count > 0 {
+                    error!(
+                        "no valid certificates loaded by rustls-native-certs. all HTTPS requests will fail."
+                    );
+                }
+                root_cert_store
+            }
+
+            #[cfg(feature = "pg_test")]
+            let connector_builder = {
+                use rustls::client::danger::HandshakeSignatureValid;
+                use rustls::client::danger::ServerCertVerified;
+                use rustls::client::danger::ServerCertVerifier;
+                use rustls::pki_types;
+                use rustls::pki_types::ServerName;
+                use rustls::{DigitallySignedStruct, SignatureScheme};
+
+                #[derive(Debug)]
+                struct NoopServerVerifier;
+
+                impl ServerCertVerifier for NoopServerVerifier {
+                    fn verify_server_cert(
+                        &self,
+                        _: &CertificateDer<'_>,
+                        _: &[CertificateDer<'_>],
+                        _: &ServerName,
+                        _: &[u8],
+                        _: pki_types::UnixTime,
+                    ) -> Result<ServerCertVerified, rustls::Error> {
+                        Ok(ServerCertVerified::assertion())
+                    }
+
+                    fn verify_tls12_signature(
+                        &self,
+                        _: &[u8],
+                        _: &CertificateDer<'_>,
+                        _: &DigitallySignedStruct,
+                    ) -> Result<HandshakeSignatureValid, rustls::Error> {
+                        Ok(HandshakeSignatureValid::assertion())
+                    }
+
+                    fn verify_tls13_signature(
+                        &self,
+                        _: &[u8],
+                        _: &CertificateDer<'_>,
+                        _: &DigitallySignedStruct,
+                    ) -> Result<HandshakeSignatureValid, rustls::Error> {
+                        Ok(HandshakeSignatureValid::assertion())
+                    }
+
+                    fn supported_verify_schemes(&self) -> Vec<SignatureScheme> {
+                        vec![
+                            SignatureScheme::RSA_PKCS1_SHA1,
+                            SignatureScheme::ECDSA_SHA1_Legacy,
+                            SignatureScheme::RSA_PKCS1_SHA256,
+                            SignatureScheme::ECDSA_NISTP256_SHA256,
+                            SignatureScheme::RSA_PKCS1_SHA384,
+                            SignatureScheme::ECDSA_NISTP384_SHA384,
+                            SignatureScheme::RSA_PKCS1_SHA512,
+                            SignatureScheme::ECDSA_NISTP521_SHA512,
+                            SignatureScheme::RSA_PSS_SHA256,
+                            SignatureScheme::RSA_PSS_SHA384,
+                            SignatureScheme::RSA_PSS_SHA512,
+                            SignatureScheme::ED25519,
+                            SignatureScheme::ED448,
+                        ]
+                    }
+                }
+
+                rustls::ClientConfig::builder()
+                    .dangerous()
+                    .with_custom_certificate_verifier(std::sync::Arc::new(NoopServerVerifier {}))
+            };
+
+            #[cfg(not(feature = "pg_test"))]
+            let connector_builder =
+                rustls::ClientConfig::builder().with_root_certificates(root_certs());
+
+            agent_builder
+                .tls_config(std::sync::Arc::new(connector_builder.with_no_client_auth()))
+                .timeout_read(std::time::Duration::from_secs(3600)) // a 1hr timeout waiting on ES to return
+                .max_idle_connections_per_host(num_cpus::get()) // 1 for each CPU -- only really used during _bulk
+                .build()
+        }
     }
 
     pub fn arbitrary_request(
@@ -299,10 +400,10 @@ impl Elasticsearch {
         url.push_str(endpoint);
 
         let request = match method {
-            ArbitraryRequestType::GET => Elasticsearch::client().get(&url),
-            ArbitraryRequestType::POST => Elasticsearch::client().post(&url),
-            ArbitraryRequestType::PUT => Elasticsearch::client().put(&url),
-            ArbitraryRequestType::DELETE => Elasticsearch::client().delete(&url),
+            ArbitraryRequestType::GET => self.agent.get(&url),
+            ArbitraryRequestType::POST => self.agent.post(&url),
+            ArbitraryRequestType::PUT => self.agent.put(&url),
+            ArbitraryRequestType::DELETE => self.agent.delete(&url),
         };
 
         Elasticsearch::execute_json_request(request, post_data, |body| {

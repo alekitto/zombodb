@@ -50,7 +50,9 @@ impl ElasticsearchAliasRequest {
         };
 
         Elasticsearch::execute_json_request(
-            Elasticsearch::client().post(&format!("{}_aliases", self.elasticsearch.url())),
+            self.elasticsearch
+                .client()
+                .post(&format!("{}_aliases", self.elasticsearch.url())),
             Some(json_body),
             |_| Ok(()),
         )

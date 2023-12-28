@@ -10,7 +10,9 @@ impl ElasticsearchUpdateSettingsRequest {
 
     pub fn execute(self) -> std::result::Result<(), ElasticsearchError> {
         Elasticsearch::execute_json_request(
-            Elasticsearch::client().put(&format!("{}/_settings", self.0.base_url())),
+            self.0
+                .client()
+                .put(&format!("{}/_settings", self.0.base_url())),
             Some(json! {
                 {
                     "index": {

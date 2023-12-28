@@ -23,8 +23,10 @@ impl ElasticsearchPutMappingRequest {
 
         let mut url = self.elasticsearch.base_url();
         url.push_str("/_mapping");
-        Elasticsearch::execute_json_request(Elasticsearch::client().post(&url), Some(body), |_| {
-            Ok(())
-        })
+        Elasticsearch::execute_json_request(
+            self.elasticsearch.client().post(&url),
+            Some(body),
+            |_| Ok(()),
+        )
     }
 }

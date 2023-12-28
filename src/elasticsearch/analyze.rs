@@ -50,7 +50,7 @@ struct Custom<'a> {
 
 impl ElasticsearchAnalyzerRequest {
     pub fn execute(self) -> std::result::Result<AnalyzedData, ElasticsearchError> {
-        let client = Elasticsearch::client().post(&self.url);
+        let client = self.elasticsearch.client().post(&self.url);
 
         Elasticsearch::execute_json_request(client, Some(self.analyze_json), |body| {
             Ok(serde_json::from_reader(body).unwrap())

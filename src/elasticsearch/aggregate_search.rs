@@ -68,7 +68,7 @@ where
         url.push_str("/_search");
         url.push_str("?size=0");
 
-        let client = Elasticsearch::client().get(&url);
+        let client = self.elasticsearch.client().get(&url);
 
         Elasticsearch::execute_json_request(client, Some(self.json_query), |body| {
             #[derive(Deserialize)]

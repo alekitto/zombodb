@@ -9,7 +9,9 @@ impl ElasticsearchRefreshIndexRequest {
 
     pub fn execute(self) -> Result<(), ElasticsearchError> {
         Elasticsearch::execute_json_request(
-            Elasticsearch::client().post(&format!("{}/_refresh", self.0.base_url())),
+            self.0
+                .client()
+                .post(&format!("{}/_refresh", self.0.base_url())),
             None,
             |_| Ok(()),
         )

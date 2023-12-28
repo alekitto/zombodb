@@ -30,7 +30,7 @@ impl ElasticsearchProfileQueryRequest {
         url.push_str("?size=0");
         url.push_str("&filter_path=profile");
         Elasticsearch::execute_json_request(
-            Elasticsearch::client().post(&url),
+            self.elasticsearch.client().post(&url),
             Some(body),
             |body| Ok(serde_json::from_reader(body).expect("failed to parse response json")),
         )

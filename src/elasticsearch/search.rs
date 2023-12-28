@@ -364,7 +364,7 @@ impl ElasticsearchSearchRequest {
             url.push_str("/_fastterms");
 
             Elasticsearch::execute_json_request(
-                Elasticsearch::client().post(&url),
+                elasticsearch.client().post(&url),
                 Some(body),
                 |mut body| {
                     use byteorder::*;
@@ -400,7 +400,7 @@ impl ElasticsearchSearchRequest {
         } else {
             url.push_str("&format=json");
             Elasticsearch::execute_json_request(
-                Elasticsearch::client().post(&url),
+                elasticsearch.client().post(&url),
                 Some(body),
                 |body| {
                     let mut response: ElasticsearchSearchResponse =
@@ -517,7 +517,7 @@ impl Scroller {
 
             if let Some(scroll_id) = orig_scroll_id {
                 Elasticsearch::execute_json_request(
-                    Elasticsearch::client().delete(&format!(
+                    elasticsearch.client().delete(&format!(
                         "{}_search/scroll/{}",
                         elasticsearch.url(),
                         scroll_id

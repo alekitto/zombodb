@@ -847,6 +847,7 @@ impl Handler {
         let queue_size = self.queue_size;
         let active_threads = self.active_threads.clone();
         let successful_requests = self.successful_requests.clone();
+        let client = self.elasticsearch.client();
 
         self.active_threads.fetch_add(1, Ordering::SeqCst);
         std::thread::spawn(move || {
@@ -897,9 +898,7 @@ impl Handler {
 
                     let response = catch_unwind(AssertUnwindSafe(|| {
                         Elasticsearch::execute_request(
-                            Elasticsearch::client()
-                                .post(&url)
-                                .set("content-type", "application/json"),
+                            client.post(&url).set("content-type", "application/json"),
                             &mut reader,
                             |body| {
                                 #[derive(Serialize, Deserialize, Debug)]

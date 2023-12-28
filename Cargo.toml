@@ -23,6 +23,10 @@ rustls_native_certs = [ "rustls-native-certs" ]
 pg_test = []
 
 [dependencies]
+aws-config = "1.1.1"
+aws-credential-types = "1.1.1"
+aws-sigv4 = "1.1.1"
+base64 = "0.21.5"
 byteorder = "1.4.3"
 chrono = "0.4.26"
 cow-utils = "0.1.2"
@@ -43,8 +47,9 @@ serde = { version = "1.0.177", features = [ "derive" ] }
 serde_json = { version = "1.0.104", features = [ "preserve_order" ] }
 serde_cbor = "0.11.2"
 sqlformat = "0.2.1"
+tokio = { version = "1.35.1", features = ["rt"] }
 unicode-segmentation = "1.10.1"
-ureq = { git = "https://github.com/alekitto/ureq.git", default-features = false, features = [ "json", "gzip" ] }
+ureq = { git = "https://github.com/alekitto/ureq.git", branch = "request_with_body", default-features = false, features = [ "json", "gzip" ] }
 url = "2.5.0"
 native-tls = { version = "0.2.11", optional = true }
 rustls = { version = "0.22.1", optional = true }

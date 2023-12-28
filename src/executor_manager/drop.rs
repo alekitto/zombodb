@@ -2,6 +2,7 @@ use pgrx::spi::SpiTupleTable;
 use pgrx::{
     pg_sys, register_xact_callback, spi, IntoDatum, PgOid, PgRelation, PgXactCallbackEvent, Spi,
 };
+use std::panic::AssertUnwindSafe;
 
 use crate::elasticsearch::Elasticsearch;
 use crate::gucs::ZDB_LOG_LEVEL;
@@ -12,7 +13,7 @@ pub fn drop_index(index: &PgRelation) {
     if is_non_shadow_zdb_index(index) {
         // when the transaction commits, we'll make a best effort to delete this index
         // from its remote Elasticsearch server
-        let es = Elasticsearch::new(index);
+        let es = AssertUnwindSafe(Elasticsearch::new(index));
         register_xact_callback(PgXactCallbackEvent::Commit, move || {
             ZDB_LOG_LEVEL.get().log(&format!(
                 "[zombodb] Deleting remote index: {}",

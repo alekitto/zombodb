@@ -1,4 +1,5 @@
 use pgrx::*;
+use std::panic::AssertUnwindSafe;
 
 use crate::access_method::options::ZDBIndexOptions;
 use crate::access_method::triggers::create_triggers;
@@ -75,7 +76,7 @@ pub extern "C" fn ambuild(
         .expect("failed to create new Elasticsearch index");
 
     // register a callback to delete the newly-created ES index if our transaction aborts
-    let delete_on_abort = elasticsearch.delete_index();
+    let delete_on_abort = AssertUnwindSafe(elasticsearch.delete_index());
     register_xact_callback(PgXactCallbackEvent::Abort, move || {
         if let Err(e) = delete_on_abort.execute() {
             // we can't panic here b/c we're already in the ABORT stage

@@ -44,7 +44,10 @@ impl ElasticsearchCreateIndexRequest {
                     // API non supported: OpenSearch serverless
                     Ok(())
                 } else {
-                    Err(ElasticsearchError(e.status(), format!("failed to wait for yellow status: {}", e.message())))
+                    Err(ElasticsearchError(
+                        e.status(),
+                        format!("failed to wait for yellow status: {}", e.message()),
+                    ))
                 }
             }
         }

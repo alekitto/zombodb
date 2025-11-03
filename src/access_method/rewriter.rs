@@ -133,9 +133,7 @@ unsafe fn walk_node(node: NodePtr, context: &mut WalkContext) {
         return;
     }
 
-    let is_incremental_sort_node = {
-        is_a(node, pg_sys::NodeTag::T_IncrementalSort)
-    };
+    let is_incremental_sort_node = { is_a(node, pg_sys::NodeTag::T_IncrementalSort) };
 
     if is_a(node, pg_sys::NodeTag::T_PlannedStmt) {
         let stmt = PgBox::from_pg(node as *mut pg_sys::PlannedStmt);

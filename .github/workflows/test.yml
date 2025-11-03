@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [ 12, 13, 14, 15]
+        version: [13, 14, 15]
         os: ["ubuntu-latest"]
         es_version:
         - { image: 'elasticsearch:7.17.0', endpoint: 'http://localhost:19200/' }

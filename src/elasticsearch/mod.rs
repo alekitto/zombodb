@@ -180,6 +180,7 @@ impl Elasticsearch {
                             .into()
                         } else {
                             let rt = tokio::runtime::Builder::new_current_thread()
+                                .enable_all()
                                 .build()
                                 .unwrap();
                             rt.block_on(async {
@@ -205,7 +206,7 @@ impl Elasticsearch {
 
                         let mut read = payload.into_read();
                         let mut buf = vec![];
-                        read.reader.read(&mut buf).expect("cannot read body");
+                        read.reader.read_to_end(&mut buf).expect("cannot read body");
 
                         // Convert the HTTP request into a signable request
                         let signable_request = SignableRequest::new(

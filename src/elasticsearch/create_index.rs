@@ -31,14 +31,23 @@ impl ElasticsearchCreateIndexRequest {
             self.elasticsearch.options.shards()
         );
 
-        Elasticsearch::execute_json_request(
+        let result = Elasticsearch::execute_json_request(
             self.elasticsearch.client().get(&url),
             None,
             |_| Ok(()),
-        )
-        .expect("failed to wait for yellow status");
+        );
 
-        Ok(())
+        match result {
+            Ok(_) => Ok(()),
+            Err(e) => {
+                if e.is_404() {
+                    // API non supported: OpenSearch serverless
+                    Ok(())
+                } else {
+                    Err(ElasticsearchError(e.status(), format!("failed to wait for yellow status: {}", e.message())))
+                }
+            }
+        }
     }
 
     fn create_request_body(&self) -> Value {

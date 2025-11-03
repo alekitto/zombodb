@@ -762,8 +762,13 @@ extern "C" fn validate_url(url: *const std::os::raw::c_char) {
         .to_str()
         .expect("failed to convert url to utf8");
 
+    if url == "default" {
+        // "default" is a fine value
+        return;
+    }
+
     if let Err(e) = url::Url::parse(url) {
-        panic!("{}", e.to_string())
+        panic!(r#"URL "{}" is not valid: {}"#, url, e.to_string())
     }
 }
 

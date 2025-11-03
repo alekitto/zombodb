@@ -1,10 +1,10 @@
-// auto-generated: "lalrpop 0.22.1"
+// auto-generated: "lalrpop 0.22.2"
 // sha3: 9998006a33e0c91baea56dcdb9ca8eeed48d023c7071a3fadf355bcdea3cac0d
-use crate::zql::ast::*;
-use pgrx::*;
-use std::collections::HashMap;
-use std::collections::HashSet;
 use std::str::FromStr;
+use std::collections::HashSet;
+use crate::zql::ast::*;
+use std::collections::HashMap;
+use pgrx::*;
 #[allow(unused_extern_crates)]
 extern crate lalrpop_util as __lalrpop_util;
 #[allow(unused_imports)]
@@ -2346,7 +2346,7 @@ mod __parse__Expr {
                     nonterminal_produced: 72,
                 }
             }
-            _ => panic!("invalid reduction index {}", __reduce_index)
+            _ => panic!("invalid reduction index {__reduce_index}",)
         }
     }
     pub struct ExprParser {
@@ -2979,7 +2979,7 @@ mod __parse__Expr {
             175 => {
                 __reduce175(source_index, used_fields, fieldname_stack, operator_stack, input, __lookahead_start, __symbols, core::marker::PhantomData::<(&())>)
             }
-            _ => panic!("invalid action code {}", __action)
+            _ => panic!("invalid action code {__action}")
         };
         let __states_len = __states.len();
         __states.truncate(__states_len - __pop_states);
@@ -8694,7 +8694,7 @@ mod __parse__FieldList {
                     nonterminal_produced: 72,
                 }
             }
-            _ => panic!("invalid reduction index {}", __reduce_index)
+            _ => panic!("invalid reduction index {__reduce_index}",)
         }
     }
     pub struct FieldListParser {
@@ -9327,7 +9327,7 @@ mod __parse__FieldList {
             175 => {
                 __reduce175(source_index, used_fields, fieldname_stack, operator_stack, input, __lookahead_start, __symbols, core::marker::PhantomData::<(&())>)
             }
-            _ => panic!("invalid action code {}", __action)
+            _ => panic!("invalid action code {__action}")
         };
         let __states_len = __states.len();
         __states.truncate(__states_len - __pop_states);
@@ -15049,7 +15049,7 @@ mod __parse__IndexLink {
                 }
             }
             175 => __state_machine::SimulatedReduce::Accept,
-            _ => panic!("invalid reduction index {}", __reduce_index)
+            _ => panic!("invalid reduction index {__reduce_index}",)
         }
     }
     pub struct IndexLinkParser {
@@ -15682,7 +15682,7 @@ mod __parse__IndexLink {
                 let __nt = super::__action1::<>(source_index, used_fields, fieldname_stack, operator_stack, input, __sym0);
                 return Some(Ok(__nt));
             }
-            _ => panic!("invalid action code {}", __action)
+            _ => panic!("invalid action code {__action}")
         };
         let __states_len = __states.len();
         __states.truncate(__states_len - __pop_states);
@@ -19980,80 +19980,74 @@ mod __intern_token {
 pub(crate) use self::__lalrpop_util::lexer::Token;
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action0<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action0<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action1<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action1<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, IndexLink, usize),
-) -> IndexLink {
+) -> IndexLink
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action2<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action2<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, HashMap<String, Vec<String>>, usize),
-) -> HashMap<String, Vec<String>> {
+) -> HashMap<String, Vec<String>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action3<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action3<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action4<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action4<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20061,16 +20055,13 @@ fn __action4<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     (_, r, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
-        let mut final_children: Vec<Expr> = v.into_iter().map(|b| *b).collect();
+        let mut final_children:Vec<Expr> = v.into_iter().map(|b| *b).collect();
         match *r {
-            Expr::OrList(mut children) => {
-                final_children.append(&mut children);
-            }
-            other => {
-                final_children.push(other);
-            }
+            Expr::OrList(mut children) => { final_children.append(&mut children); }
+            other => { final_children.push(other); }
         }
 
         Box::new(Expr::OrList(final_children))
@@ -20078,63 +20069,58 @@ fn __action4<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action5<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action5<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action6<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action6<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::Or
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action7<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action7<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::Or
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action8<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action8<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20142,16 +20128,13 @@ fn __action8<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     (_, r, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
-        let mut final_children: Vec<Expr> = v.into_iter().map(|b| *b).collect();
+        let mut final_children:Vec<Expr> = v.into_iter().map(|b| *b).collect();
         match *r {
-            Expr::AndList(mut children) => {
-                final_children.append(&mut children);
-            }
-            other => {
-                final_children.push(other);
-            }
+            Expr::AndList(mut children) => { final_children.append(&mut children); }
+            other => { final_children.push(other); }
         }
 
         Box::new(Expr::AndList(final_children))
@@ -20159,63 +20142,58 @@ fn __action8<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action9<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action9<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action10<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action10<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::And
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action11<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action11<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::And
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action12<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action12<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20223,16 +20201,13 @@ fn __action12<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     (_, r, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
-        let mut final_children: Vec<Expr> = v.into_iter().map(|b| *b).collect();
+        let mut final_children:Vec<Expr> = v.into_iter().map(|b| *b).collect();
         match *r {
-            Expr::WithList(mut children) => {
-                final_children.append(&mut children);
-            }
-            other => {
-                final_children.push(other);
-            }
+            Expr::WithList(mut children) => { final_children.append(&mut children); }
+            other => { final_children.push(other); }
         }
 
         Box::new(Expr::WithList(final_children))
@@ -20240,63 +20215,58 @@ fn __action12<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action13<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action13<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action14<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action14<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::With
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action15<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action15<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::With
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action16<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action16<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20304,11 +20274,12 @@ fn __action16<'input>(
     input: &'input str,
     (_, mut parts, _): (usize, alloc::vec::Vec<ProximityPart>, usize),
     (_, words, _): (usize, Vec<ProximityTerm>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
         parts.push(ProximityPart {
             words,
-            distance: None,
+            distance: None
         });
 
         let field_name = fieldname_stack.last().unwrap();
@@ -20316,38 +20287,31 @@ fn __action16<'input>(
 
         used_fields.insert(field_name);
 
-        Box::new(Expr::from_opcode(
-            field_name,
-            *operator,
-            Term::ProximityChain(parts),
-        ))
+        Box::new(Expr::from_opcode(field_name, *operator, Term::ProximityChain(parts)))
     }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action17<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action17<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action18<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action18<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20356,93 +20320,88 @@ fn __action18<'input>(
     (_, words, _): (usize, Vec<ProximityTerm>, usize),
     (_, in_order, _): (usize, bool, usize),
     (_, distance, _): (usize, &'input str, usize),
-) -> ProximityPart {
+) -> ProximityPart
+{
     {
         ProximityPart {
             words,
             distance: Some(ProximityDistance {
                 distance: u32::from_str(distance).unwrap(),
-                in_order,
-            }),
+                in_order
+                })
         }
     }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action19<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action19<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Vec<ProximityTerm> {
+) -> Vec<ProximityTerm>
+{
     __0.extract_prox_terms(source_index)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action20<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action20<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, ProximityTerm, usize),
-) -> Vec<ProximityTerm> {
+) -> Vec<ProximityTerm>
+{
     vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action21<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action21<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> bool {
+) -> bool
+{
     false
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action22<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action22<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> bool {
+) -> bool
+{
     true
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action23<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action23<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20450,102 +20409,96 @@ fn __action23<'input>(
     input: &'input str,
     (_, _, _): (usize, Opcode, usize),
     (_, t, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     Box::new(Expr::Not(t))
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action24<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action24<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Expr<'input>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     Box::new(__0)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action25<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action25<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Expr<'input>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     Box::new(__0)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action26<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action26<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action27<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action27<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::Not
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action28<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action28<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Opcode {
+) -> Opcode
+{
     Opcode::Not
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action29<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action29<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20554,7 +20507,8 @@ fn __action29<'input>(
     (_, __0, _): (usize, &'input str, usize),
     (_, __1, _): (usize, ComparisonOpcode, usize),
     (_, __2, _): (usize, Term<'input>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
         fieldname_stack.pop();
         operator_stack.pop();
@@ -20563,12 +20517,10 @@ fn __action29<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action30<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action30<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20580,7 +20532,8 @@ fn __action30<'input>(
     (_, _, _): (usize, &'input str, usize),
     (_, end, _): (usize, (&'input str, bool), usize),
     (_, b, _): (usize, Option<f32>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
         fieldname_stack.pop();
         operator_stack.pop();
@@ -20590,19 +20543,18 @@ fn __action30<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action31<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action31<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Term<'input>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
         let field_name = fieldname_stack.last().unwrap();
         let operator = operator_stack.last().unwrap();
@@ -20615,12 +20567,10 @@ fn __action31<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action32<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action32<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20631,7 +20581,8 @@ fn __action32<'input>(
     (_, _, _): (usize, &'input str, usize),
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     {
         fieldname_stack.pop();
         operator_stack.pop();
@@ -20640,12 +20591,10 @@ fn __action32<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action33<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action33<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20654,53 +20603,32 @@ fn __action33<'input>(
     (_, _, _): (usize, &'input str, usize),
     (_, __0, _): (usize, String, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     Box::new(Expr::Json(__0))
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action34<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action34<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action35<'input>(
-    source_index: Option<&PgRelation>,
-    used_fields: &mut HashSet<&'input str>,
-    fieldname_stack: &mut Vec<&'input str>,
-    operator_stack: &mut Vec<ComparisonOpcode>,
-    input: &'input str,
-    (_, _, _): (usize, &'input str, usize),
-    (_, __0, _): (usize, Box<Expr<'input>>, usize),
-    (_, _, _): (usize, &'input str, usize),
-) -> Box<Expr<'input>> {
-    __0
-}
-
-#[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action36<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action35<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -20709,24 +20637,42 @@ fn __action36<'input>(
     (_, _, _): (usize, &'input str, usize),
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action37<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action36<
+    'input,
+>(
+    source_index: Option<&PgRelation>,
+    used_fields: &mut HashSet<&'input str>,
+    fieldname_stack: &mut Vec<&'input str>,
+    operator_stack: &mut Vec<ComparisonOpcode>,
+    input: &'input str,
+    (_, _, _): (usize, &'input str, usize),
+    (_, __0, _): (usize, Box<Expr<'input>>, usize),
+    (_, _, _): (usize, &'input str, usize),
+) -> Box<Expr<'input>>
+{
+    __0
+}
+
+#[allow(unused_variables)]
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action37<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     {
         let mut fieldname = __0;
 
@@ -20742,19 +20688,18 @@ fn __action37<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action38<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action38<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     {
         fieldname_stack.push(__0);
         used_fields.insert(__0);
@@ -20763,21 +20708,20 @@ fn __action38<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action39<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action39<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     {
-        let fieldname = &__0[1..__0.len() - 1];
+        let fieldname = &__0[1..__0.len()-1];
         fieldname_stack.push(fieldname);
         used_fields.insert(fieldname);
         fieldname
@@ -20785,70 +20729,66 @@ fn __action39<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action40<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action40<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action41<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action41<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action42<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action42<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action43<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action43<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, ComparisonOpcode, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     {
         operator_stack.push(__0);
         __0
@@ -20856,233 +20796,218 @@ fn __action43<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action44<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action44<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Contains
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action45<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action45<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Eq
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action46<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action46<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Gt
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action47<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action47<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Lt
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action48<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action48<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Gte
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action49<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action49<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Lte
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action50<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action50<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Ne
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action51<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action51<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::DoesNotContain
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action52<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action52<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Regex
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action53<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action53<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::MoreLikeThis
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action54<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action54<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::FuzzyLikeThis
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action55<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action55<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> ComparisonOpcode {
+) -> ComparisonOpcode
+{
     ComparisonOpcode::Matches
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action56<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action56<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Term<'input>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action57<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action57<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21092,7 +21017,8 @@ fn __action57<'input>(
     (_, v, _): (usize, alloc::vec::Vec<Term<'input>>, usize),
     (_, _, _): (usize, &'input str, usize),
     (_, b, _): (usize, Option<f32>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     {
         if v.is_empty() {
             Term::MatchNone
@@ -21103,12 +21029,10 @@ fn __action57<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action58<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action58<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21116,7 +21040,8 @@ fn __action58<'input>(
     input: &'input str,
     (_, a, _): (usize, &'input str, usize),
     (_, b, _): (usize, Option<f32>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     {
         if a.trim().is_empty() {
             Term::MatchNone
@@ -21127,48 +21052,44 @@ fn __action58<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action59<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action59<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     {
-        &__0[2..__0.len() - 2]
+        &__0[2..__0.len()-2]
     }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action60<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action60<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     Term::Null
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action61<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action61<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21176,22 +21097,23 @@ fn __action61<'input>(
     input: &'input str,
     (_, s, _): (usize, (&'input str, bool), usize),
     (_, b, _): (usize, Option<f32>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     {
         match Term::maybe_make_wildcard_or_regex(operator_stack.last(), s.0, b) {
-            Term::String(t, b) if s.1 == true => Term::Phrase(t, b),
-            other => other,
+            Term::String(t, b) if s.1 == true => {
+                Term::Phrase(t, b)
+            },
+            other => other
         }
     }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action62<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action62<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21200,17 +21122,16 @@ fn __action62<'input>(
     (_, s, _): (usize, (&'input str, bool), usize),
     (_, f, _): (usize, u8, usize),
     (_, b, _): (usize, Option<f32>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     Term::Fuzzy(s.0, f, b)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action63<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action63<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21218,17 +21139,16 @@ fn __action63<'input>(
     input: &'input str,
     (_, s, _): (usize, (&'input str, bool), usize),
     (_, b, _): (usize, Option<f32>, usize),
-) -> ProximityTerm {
+) -> ProximityTerm
+{
     ProximityTerm::make_proximity_term(operator_stack.last(), s.0, b)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action64<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action64<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21237,17 +21157,16 @@ fn __action64<'input>(
     (_, s, _): (usize, (&'input str, bool), usize),
     (_, f, _): (usize, u8, usize),
     (_, b, _): (usize, Option<f32>, usize),
-) -> ProximityTerm {
+) -> ProximityTerm
+{
     ProximityTerm::Fuzzy(s.0.into(), f, b)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action65<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action65<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21255,17 +21174,16 @@ fn __action65<'input>(
     input: &'input str,
     (_, _, _): (usize, &'input str, usize),
     (_, __0, _): (usize, &'input str, usize),
-) -> f32 {
+) -> f32
+{
     f32::from_str(__0).unwrap()
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action66<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action66<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21273,24 +21191,24 @@ fn __action66<'input>(
     input: &'input str,
     (_, _, _): (usize, &'input str, usize),
     (_, __0, _): (usize, &'input str, usize),
-) -> f32 {
+) -> f32
+{
     f32::from_str(__0).unwrap()
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action67<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action67<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> u8 {
+) -> u8
+{
     {
         let fuzz = &__0[1..];
         if fuzz.is_empty() {
@@ -21302,185 +21220,175 @@ fn __action67<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action68<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action68<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     (__0, false)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action69<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action69<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     (__0, false)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action70<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action70<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     ("true", false)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action71<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action71<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     ("false", false)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action72<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action72<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     (__0, false)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action73<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action73<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     (__0, false)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action74<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action74<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     (__0, false)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action75<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action75<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     {
         let s = __0;
-        let s = &s[1..s.len() - 1];
+        let s = &s[1..s.len()-1];
         (s, true)
     }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action76<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action76<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> (&'input str, bool) {
+) -> (&'input str, bool)
+{
     {
         let s = __0;
-        let s = &s[1..s.len() - 1];
+        let s = &s[1..s.len()-1];
         (s, true)
     }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action77<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action77<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> QualifiedIndex {
+) -> QualifiedIndex
+{
     {
         let name = __0;
         let name = if name.starts_with('`') && name.ends_with('`') {
             // if it's a QUOTED_IDENTIFIER we need to strip off the leading and trailing backticks
-            &name[1..name.len() - 1]
+            &name[1..name.len()-1]
         } else {
             // intended to use as-is
             name
@@ -21493,14 +21401,11 @@ fn __action77<'input>(
         if schema == Some("this") && table == Some("index") && index.is_none() {
             // for backwards compatibility, if the user simply writes <this.index>, we'll
             // force the schema to "public"
-            index = table; // "index"
-            table = schema; // "this"
+            index = table;      // "index"
+            table = schema;     // "this"
             schema = Some("public");
         } else if schema.is_none() || table.is_none() || index.is_none() {
-            panic!(
-                "qualified index ({}) must be schema qualified.  ie, schema.table.index",
-                __0
-            );
+            panic!("qualified index ({}) must be schema qualified.  ie, schema.table.index", __0);
         } else if parts.next().is_some() {
             panic!("index link schema.table.index is too long: {}", __0);
         }
@@ -21514,12 +21419,10 @@ fn __action77<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action78<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action78<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21531,22 +21434,16 @@ fn __action78<'input>(
     (_, qualified_index, _): (usize, QualifiedIndex, usize),
     (_, _, _): (usize, &'input str, usize),
     (_, right_field, _): (usize, &'input str, usize),
-) -> IndexLink {
-    IndexLink {
-        name: None,
-        left_field: Some(left_field.to_string()),
-        qualified_index,
-        right_field: Some(right_field.to_string()),
-    }
+) -> IndexLink
+{
+    IndexLink { name: None, left_field: Some(left_field.to_string()), qualified_index, right_field: Some(right_field.to_string()) }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action79<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action79<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21562,22 +21459,16 @@ fn __action79<'input>(
     (_, _, _): (usize, &'input str, usize),
     (_, right_field, _): (usize, &'input str, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> IndexLink {
-    IndexLink {
-        name: Some(name.to_string()),
-        left_field: Some(left_field.to_string()),
-        qualified_index,
-        right_field: Some(right_field.to_string()),
-    }
+) -> IndexLink
+{
+    IndexLink { name: Some(name.to_string()), left_field: Some(left_field.to_string()), qualified_index, right_field: Some(right_field.to_string()) }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action80<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action80<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21588,17 +21479,16 @@ fn __action80<'input>(
     (_, link, _): (usize, IndexLink, usize),
     (_, _, _): (usize, &'input str, usize),
     (_, q, _): (usize, Box<Expr<'input>>, usize),
-) -> Expr<'input> {
+) -> Expr<'input>
+{
     Expr::Subselect(link, q)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action81<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action81<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21612,17 +21502,16 @@ fn __action81<'input>(
     (_, e, _): (usize, Box<Expr<'input>>, usize),
     (_, f, _): (usize, Option<Box<Expr<'input>>>, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> Expr<'input> {
+) -> Expr<'input>
+{
     Expr::Expand(link, e, f)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action82<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action82<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21632,17 +21521,16 @@ fn __action82<'input>(
     (_, _, _): (usize, &'input str, usize),
     (_, e, _): (usize, Box<Expr<'input>>, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     e
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action83<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action83<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21652,7 +21540,8 @@ fn __action83<'input>(
     (_, v, _): (usize, alloc::vec::Vec<String>, usize),
     (_, e, _): (usize, Option<String>, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     {
         let props = match e {
             None => v,
@@ -21666,9 +21555,7 @@ fn __action83<'input>(
         let mut json = String::new();
         json.push('{');
         for (i, p) in props.iter().enumerate() {
-            if i > 0 {
-                json.push(',')
-            }
+            if i > 0 { json.push(',') }
             json.push_str(p);
         }
         json.push('}');
@@ -21677,12 +21564,10 @@ fn __action83<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action84<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action84<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21691,68 +21576,64 @@ fn __action84<'input>(
     (_, k, _): (usize, &'input str, usize),
     (_, _, _): (usize, &'input str, usize),
     (_, v, _): (usize, String, usize),
-) -> String {
+) -> String
+{
     format!("{}:{}", k, v)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action85<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action85<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, String, usize),
-) -> String {
+) -> String
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action86<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action86<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, String, usize),
-) -> String {
+) -> String
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action87<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action87<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     __0.to_string()
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action88<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action88<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21762,7 +21643,8 @@ fn __action88<'input>(
     (_, v, _): (usize, alloc::vec::Vec<String>, usize),
     (_, e, _): (usize, Option<String>, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     {
         let v = match e {
             None => v,
@@ -21776,9 +21658,7 @@ fn __action88<'input>(
         let mut array = String::new();
         array.push('[');
         for (i, v) in v.iter().enumerate() {
-            if i > 0 {
-                array.push(',');
-            }
+            if i > 0 { array.push(','); }
             array.push_str(&v);
         }
         array.push(']');
@@ -21787,114 +21667,106 @@ fn __action88<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action89<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action89<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action90<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action90<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action91<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action91<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action92<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action92<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action93<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action93<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action94<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action94<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action95<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action95<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21902,7 +21774,8 @@ fn __action95<'input>(
     input: &'input str,
     (_, mut field_lists, _): (usize, alloc::vec::Vec<(String, Vec<String>)>, usize),
     (_, e, _): (usize, (String, Vec<String>), usize),
-) -> HashMap<String, Vec<String>> {
+) -> HashMap<String, Vec<String>>
+{
     {
         field_lists.push(e);
         let mut map = HashMap::new();
@@ -21917,12 +21790,10 @@ fn __action95<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action96<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action96<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21933,19 +21804,18 @@ fn __action96<'input>(
     (_, _, _): (usize, &'input str, usize),
     (_, list, _): (usize, Vec<String>, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> (String, Vec<String>) {
+) -> (String, Vec<String>)
+{
     {
         (name.into(), list)
     }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action97<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action97<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21953,7 +21823,8 @@ fn __action97<'input>(
     input: &'input str,
     (_, mut v, _): (usize, alloc::vec::Vec<&'input str>, usize),
     (_, e, _): (usize, &'input str, usize),
-) -> Vec<String> {
+) -> Vec<String>
+{
     {
         v.push(e);
         v.into_iter().map(|e| e.into()).collect()
@@ -21961,12 +21832,10 @@ fn __action97<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action98<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action98<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -21974,34 +21843,32 @@ fn __action98<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> alloc::vec::Vec<&'input str> {
+) -> alloc::vec::Vec<&'input str>
+{
     alloc::vec![]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action99<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action99<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<&'input str>, usize),
-) -> alloc::vec::Vec<&'input str> {
+) -> alloc::vec::Vec<&'input str>
+{
     v
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action100<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action100<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22009,17 +21876,16 @@ fn __action100<'input>(
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> &'input str {
+) -> &'input str
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action101<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action101<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22027,34 +21893,32 @@ fn __action101<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> alloc::vec::Vec<(String, Vec<String>)> {
+) -> alloc::vec::Vec<(String, Vec<String>)>
+{
     alloc::vec![]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action102<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action102<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<(String, Vec<String>)>, usize),
-) -> alloc::vec::Vec<(String, Vec<String>)> {
+) -> alloc::vec::Vec<(String, Vec<String>)>
+{
     v
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action103<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action103<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22062,34 +21926,32 @@ fn __action103<'input>(
     input: &'input str,
     (_, __0, _): (usize, (String, Vec<String>), usize),
     (_, _, _): (usize, &'input str, usize),
-) -> (String, Vec<String>) {
+) -> (String, Vec<String>)
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action104<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action104<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, String, usize),
-) -> Option<String> {
+) -> Option<String>
+{
     Some(__0)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action105<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action105<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22097,17 +21959,16 @@ fn __action105<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> Option<String> {
+) -> Option<String>
+{
     None
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action106<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action106<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22115,34 +21976,32 @@ fn __action106<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     alloc::vec![]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action107<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action107<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<String>, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     v
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action108<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action108<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22150,34 +22009,32 @@ fn __action108<'input>(
     input: &'input str,
     (_, __0, _): (usize, String, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action109<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action109<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, String, usize),
-) -> Option<String> {
+) -> Option<String>
+{
     Some(__0)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action110<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action110<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22185,17 +22042,16 @@ fn __action110<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> Option<String> {
+) -> Option<String>
+{
     None
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action111<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action111<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22203,34 +22059,32 @@ fn __action111<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     alloc::vec![]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action112<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action112<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<String>, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     v
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action113<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action113<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22238,34 +22092,32 @@ fn __action113<'input>(
     input: &'input str,
     (_, __0, _): (usize, String, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action114<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action114<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> Option<Box<Expr<'input>>> {
+) -> Option<Box<Expr<'input>>>
+{
     Some(__0)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action115<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action115<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22273,17 +22125,16 @@ fn __action115<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> Option<Box<Expr<'input>>> {
+) -> Option<Box<Expr<'input>>>
+{
     None
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action116<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action116<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22291,34 +22142,32 @@ fn __action116<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> alloc::vec::Vec<Term<'input>> {
+) -> alloc::vec::Vec<Term<'input>>
+{
     alloc::vec![]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action117<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action117<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Term<'input>>, usize),
-) -> alloc::vec::Vec<Term<'input>> {
+) -> alloc::vec::Vec<Term<'input>>
+{
     v
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action118<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action118<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22326,34 +22175,32 @@ fn __action118<'input>(
     input: &'input str,
     (_, __0, _): (usize, Term<'input>, usize),
     (_, _, _): (usize, Option<&'input str>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action119<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action119<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> Option<&'input str> {
+) -> Option<&'input str>
+{
     Some(__0)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action120<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action120<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22361,34 +22208,32 @@ fn __action120<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> Option<&'input str> {
+) -> Option<&'input str>
+{
     None
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action121<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action121<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, f32, usize),
-) -> Option<f32> {
+) -> Option<f32>
+{
     Some(__0)
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action122<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action122<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22396,34 +22241,32 @@ fn __action122<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> Option<f32> {
+) -> Option<f32>
+{
     None
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action123<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action123<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, ProximityPart, usize),
-) -> alloc::vec::Vec<ProximityPart> {
+) -> alloc::vec::Vec<ProximityPart>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action124<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action124<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22431,38 +22274,32 @@ fn __action124<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<ProximityPart>, usize),
     (_, e, _): (usize, ProximityPart, usize),
-) -> alloc::vec::Vec<ProximityPart> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<ProximityPart>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action125<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action125<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action126<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action126<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22470,21 +22307,16 @@ fn __action126<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     (_, e, _): (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action127<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action127<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22492,34 +22324,32 @@ fn __action127<'input>(
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
     (_, _, _): (usize, alloc::vec::Vec<Opcode>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action128<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action128<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Opcode, usize),
-) -> alloc::vec::Vec<Opcode> {
+) -> alloc::vec::Vec<Opcode>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action129<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action129<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22527,38 +22357,32 @@ fn __action129<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Opcode>, usize),
     (_, e, _): (usize, Opcode, usize),
-) -> alloc::vec::Vec<Opcode> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<Opcode>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action130<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action130<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action131<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action131<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22566,21 +22390,16 @@ fn __action131<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     (_, e, _): (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action132<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action132<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22588,17 +22407,16 @@ fn __action132<'input>(
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
     (_, _, _): (usize, alloc::vec::Vec<Opcode>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action133<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action133<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22606,51 +22424,48 @@ fn __action133<'input>(
     input: &'input str,
     __lookbehind: &usize,
     __lookahead: &usize,
-) -> alloc::vec::Vec<Opcode> {
+) -> alloc::vec::Vec<Opcode>
+{
     alloc::vec![]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action134<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action134<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Opcode>, usize),
-) -> alloc::vec::Vec<Opcode> {
+) -> alloc::vec::Vec<Opcode>
+{
     v
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action135<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action135<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action136<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action136<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22658,21 +22473,16 @@ fn __action136<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     (_, e, _): (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action137<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action137<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22680,34 +22490,32 @@ fn __action137<'input>(
     input: &'input str,
     (_, __0, _): (usize, Box<Expr<'input>>, usize),
     (_, _, _): (usize, alloc::vec::Vec<Opcode>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     __0
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action138<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action138<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Opcode, usize),
-) -> alloc::vec::Vec<Opcode> {
+) -> alloc::vec::Vec<Opcode>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action139<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action139<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22715,38 +22523,32 @@ fn __action139<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Opcode>, usize),
     (_, e, _): (usize, Opcode, usize),
-) -> alloc::vec::Vec<Opcode> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<Opcode>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action140<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action140<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Opcode, usize),
-) -> alloc::vec::Vec<Opcode> {
+) -> alloc::vec::Vec<Opcode>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action141<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action141<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22754,38 +22556,32 @@ fn __action141<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Opcode>, usize),
     (_, e, _): (usize, Opcode, usize),
-) -> alloc::vec::Vec<Opcode> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<Opcode>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action142<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action142<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, Term<'input>, usize),
-) -> alloc::vec::Vec<Term<'input>> {
+) -> alloc::vec::Vec<Term<'input>>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action143<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action143<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22793,38 +22589,32 @@ fn __action143<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<Term<'input>>, usize),
     (_, e, _): (usize, Term<'input>, usize),
-) -> alloc::vec::Vec<Term<'input>> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<Term<'input>>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action144<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action144<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, String, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action145<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action145<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22832,38 +22622,32 @@ fn __action145<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<String>, usize),
     (_, e, _): (usize, String, usize),
-) -> alloc::vec::Vec<String> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<String>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action146<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action146<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, String, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action147<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action147<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22871,38 +22655,32 @@ fn __action147<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<String>, usize),
     (_, e, _): (usize, String, usize),
-) -> alloc::vec::Vec<String> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<String>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action148<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action148<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, (String, Vec<String>), usize),
-) -> alloc::vec::Vec<(String, Vec<String>)> {
+) -> alloc::vec::Vec<(String, Vec<String>)>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action149<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action149<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22910,38 +22688,32 @@ fn __action149<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<(String, Vec<String>)>, usize),
     (_, e, _): (usize, (String, Vec<String>), usize),
-) -> alloc::vec::Vec<(String, Vec<String>)> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<(String, Vec<String>)>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action150<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action150<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> alloc::vec::Vec<&'input str> {
+) -> alloc::vec::Vec<&'input str>
+{
     alloc::vec![__0]
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action151<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes, clippy::just_underscores_and_digits)]
+fn __action151<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22949,21 +22721,17 @@ fn __action151<'input>(
     input: &'input str,
     (_, v, _): (usize, alloc::vec::Vec<&'input str>, usize),
     (_, e, _): (usize, &'input str, usize),
-) -> alloc::vec::Vec<&'input str> {
-    {
-        let mut v = v;
-        v.push(e);
-        v
-    }
+) -> alloc::vec::Vec<&'input str>
+{
+    { let mut v = v; v.push(e); v }
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action152<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action152<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -22971,7 +22739,8 @@ fn __action152<'input>(
     input: &'input str,
     __0: (usize, Box<Expr<'input>>, usize),
     __1: (usize, alloc::vec::Vec<Opcode>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action137(
@@ -22995,12 +22764,11 @@ fn __action152<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action153<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action153<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23009,7 +22777,8 @@ fn __action153<'input>(
     __0: (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     __1: (usize, Box<Expr<'input>>, usize),
     __2: (usize, alloc::vec::Vec<Opcode>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action137(
@@ -23034,12 +22803,11 @@ fn __action153<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action154<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action154<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23047,7 +22815,8 @@ fn __action154<'input>(
     input: &'input str,
     __0: (usize, &'input str, usize),
     __1: (usize, &'input str, usize),
-) -> alloc::vec::Vec<&'input str> {
+) -> alloc::vec::Vec<&'input str>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action100(
@@ -23071,12 +22840,11 @@ fn __action154<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action155<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action155<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23085,7 +22853,8 @@ fn __action155<'input>(
     __0: (usize, alloc::vec::Vec<&'input str>, usize),
     __1: (usize, &'input str, usize),
     __2: (usize, &'input str, usize),
-) -> alloc::vec::Vec<&'input str> {
+) -> alloc::vec::Vec<&'input str>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action100(
@@ -23110,19 +22879,19 @@ fn __action155<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action156<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action156<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, &'input str, usize),
-) -> Vec<String> {
+) -> Vec<String>
+{
     let __start0 = __0.0;
     let __end0 = __0.0;
     let __temp0 = __action98(
@@ -23147,12 +22916,11 @@ fn __action156<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action157<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action157<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23160,7 +22928,8 @@ fn __action157<'input>(
     input: &'input str,
     __0: (usize, alloc::vec::Vec<&'input str>, usize),
     __1: (usize, &'input str, usize),
-) -> Vec<String> {
+) -> Vec<String>
+{
     let __start0 = __0.0;
     let __end0 = __0.2;
     let __temp0 = __action99(
@@ -23184,12 +22953,11 @@ fn __action157<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action158<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action158<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23197,7 +22965,8 @@ fn __action158<'input>(
     input: &'input str,
     __0: (usize, String, usize),
     __1: (usize, &'input str, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action113(
@@ -23221,12 +22990,11 @@ fn __action158<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action159<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action159<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23235,7 +23003,8 @@ fn __action159<'input>(
     __0: (usize, alloc::vec::Vec<String>, usize),
     __1: (usize, String, usize),
     __2: (usize, &'input str, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action113(
@@ -23260,12 +23029,11 @@ fn __action159<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action160<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action160<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23274,7 +23042,8 @@ fn __action160<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, Option<String>, usize),
     __2: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __0.2;
     let __end0 = __1.0;
     let __temp0 = __action111(
@@ -23301,12 +23070,11 @@ fn __action160<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action161<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action161<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23316,7 +23084,8 @@ fn __action161<'input>(
     __1: (usize, alloc::vec::Vec<String>, usize),
     __2: (usize, Option<String>, usize),
     __3: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action112(
@@ -23342,12 +23111,11 @@ fn __action161<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action162<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action162<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23355,7 +23123,8 @@ fn __action162<'input>(
     input: &'input str,
     __0: (usize, String, usize),
     __1: (usize, &'input str, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action108(
@@ -23379,12 +23148,11 @@ fn __action162<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action163<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action163<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23393,7 +23161,8 @@ fn __action163<'input>(
     __0: (usize, alloc::vec::Vec<String>, usize),
     __1: (usize, String, usize),
     __2: (usize, &'input str, usize),
-) -> alloc::vec::Vec<String> {
+) -> alloc::vec::Vec<String>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action108(
@@ -23418,12 +23187,11 @@ fn __action163<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action164<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action164<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23432,7 +23200,8 @@ fn __action164<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, Option<String>, usize),
     __2: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __0.2;
     let __end0 = __1.0;
     let __temp0 = __action106(
@@ -23459,12 +23228,11 @@ fn __action164<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action165<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action165<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23474,7 +23242,8 @@ fn __action165<'input>(
     __1: (usize, alloc::vec::Vec<String>, usize),
     __2: (usize, Option<String>, usize),
     __3: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action107(
@@ -23500,12 +23269,11 @@ fn __action165<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action166<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action166<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23513,7 +23281,8 @@ fn __action166<'input>(
     input: &'input str,
     __0: (usize, (String, Vec<String>), usize),
     __1: (usize, &'input str, usize),
-) -> alloc::vec::Vec<(String, Vec<String>)> {
+) -> alloc::vec::Vec<(String, Vec<String>)>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action103(
@@ -23537,12 +23306,11 @@ fn __action166<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action167<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action167<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23551,7 +23319,8 @@ fn __action167<'input>(
     __0: (usize, alloc::vec::Vec<(String, Vec<String>)>, usize),
     __1: (usize, (String, Vec<String>), usize),
     __2: (usize, &'input str, usize),
-) -> alloc::vec::Vec<(String, Vec<String>)> {
+) -> alloc::vec::Vec<(String, Vec<String>)>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action103(
@@ -23576,19 +23345,19 @@ fn __action167<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action168<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action168<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, (String, Vec<String>), usize),
-) -> HashMap<String, Vec<String>> {
+) -> HashMap<String, Vec<String>>
+{
     let __start0 = __0.0;
     let __end0 = __0.0;
     let __temp0 = __action101(
@@ -23613,12 +23382,11 @@ fn __action168<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action169<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action169<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23626,7 +23394,8 @@ fn __action169<'input>(
     input: &'input str,
     __0: (usize, alloc::vec::Vec<(String, Vec<String>)>, usize),
     __1: (usize, (String, Vec<String>), usize),
-) -> HashMap<String, Vec<String>> {
+) -> HashMap<String, Vec<String>>
+{
     let __start0 = __0.0;
     let __end0 = __0.2;
     let __temp0 = __action102(
@@ -23650,12 +23419,11 @@ fn __action169<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action170<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action170<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23663,7 +23431,8 @@ fn __action170<'input>(
     input: &'input str,
     __0: (usize, Box<Expr<'input>>, usize),
     __1: (usize, alloc::vec::Vec<Opcode>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action127(
@@ -23687,12 +23456,11 @@ fn __action170<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action171<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action171<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23701,7 +23469,8 @@ fn __action171<'input>(
     __0: (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     __1: (usize, Box<Expr<'input>>, usize),
     __2: (usize, alloc::vec::Vec<Opcode>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action127(
@@ -23726,12 +23495,11 @@ fn __action171<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action172<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action172<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23739,7 +23507,8 @@ fn __action172<'input>(
     input: &'input str,
     __0: (usize, Term<'input>, usize),
     __1: (usize, &'input str, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action119(
@@ -23763,19 +23532,19 @@ fn __action172<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action173<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action173<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, Term<'input>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __0.2;
     let __end0 = __0.2;
     let __temp0 = __action120(
@@ -23800,12 +23569,11 @@ fn __action173<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action174<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action174<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23813,7 +23581,8 @@ fn __action174<'input>(
     input: &'input str,
     __0: (usize, Term<'input>, usize),
     __1: (usize, &'input str, usize),
-) -> alloc::vec::Vec<Term<'input>> {
+) -> alloc::vec::Vec<Term<'input>>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action172(
@@ -23837,19 +23606,19 @@ fn __action174<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action175<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action175<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, Term<'input>, usize),
-) -> alloc::vec::Vec<Term<'input>> {
+) -> alloc::vec::Vec<Term<'input>>
+{
     let __start0 = __0.0;
     let __end0 = __0.2;
     let __temp0 = __action173(
@@ -23872,12 +23641,11 @@ fn __action175<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action176<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action176<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23886,7 +23654,8 @@ fn __action176<'input>(
     __0: (usize, alloc::vec::Vec<Term<'input>>, usize),
     __1: (usize, Term<'input>, usize),
     __2: (usize, &'input str, usize),
-) -> alloc::vec::Vec<Term<'input>> {
+) -> alloc::vec::Vec<Term<'input>>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action172(
@@ -23911,12 +23680,11 @@ fn __action176<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action177<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action177<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23924,7 +23692,8 @@ fn __action177<'input>(
     input: &'input str,
     __0: (usize, alloc::vec::Vec<Term<'input>>, usize),
     __1: (usize, Term<'input>, usize),
-) -> alloc::vec::Vec<Term<'input>> {
+) -> alloc::vec::Vec<Term<'input>>
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action173(
@@ -23948,12 +23717,11 @@ fn __action177<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action178<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action178<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -23962,7 +23730,8 @@ fn __action178<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, &'input str, usize),
     __2: (usize, Option<f32>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __0.2;
     let __end0 = __1.0;
     let __temp0 = __action116(
@@ -23989,12 +23758,11 @@ fn __action178<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action179<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action179<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24004,7 +23772,8 @@ fn __action179<'input>(
     __1: (usize, alloc::vec::Vec<Term<'input>>, usize),
     __2: (usize, &'input str, usize),
     __3: (usize, Option<f32>, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action117(
@@ -24030,19 +23799,19 @@ fn __action179<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action180<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action180<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, Box<Expr<'input>>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     let __start0 = __0.2;
     let __end0 = __0.2;
     let __temp0 = __action133(
@@ -24067,12 +23836,11 @@ fn __action180<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action181<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action181<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24080,7 +23848,8 @@ fn __action181<'input>(
     input: &'input str,
     __0: (usize, Box<Expr<'input>>, usize),
     __1: (usize, alloc::vec::Vec<Opcode>, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action134(
@@ -24104,19 +23873,19 @@ fn __action181<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action182<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action182<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __0.0;
     let __end0 = __0.2;
     let __temp0 = __action180(
@@ -24139,12 +23908,11 @@ fn __action182<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action183<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action183<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24152,7 +23920,8 @@ fn __action183<'input>(
     input: &'input str,
     __0: (usize, Box<Expr<'input>>, usize),
     __1: (usize, alloc::vec::Vec<Opcode>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __0.0;
     let __end0 = __1.2;
     let __temp0 = __action181(
@@ -24176,12 +23945,11 @@ fn __action183<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action184<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action184<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24189,7 +23957,8 @@ fn __action184<'input>(
     input: &'input str,
     __0: (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     __1: (usize, Box<Expr<'input>>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action180(
@@ -24213,12 +23982,11 @@ fn __action184<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action185<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action185<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24227,7 +23995,8 @@ fn __action185<'input>(
     __0: (usize, alloc::vec::Vec<Box<Expr<'input>>>, usize),
     __1: (usize, Box<Expr<'input>>, usize),
     __2: (usize, alloc::vec::Vec<Opcode>, usize),
-) -> alloc::vec::Vec<Box<Expr<'input>>> {
+) -> alloc::vec::Vec<Box<Expr<'input>>>
+{
     let __start0 = __1.0;
     let __end0 = __2.2;
     let __temp0 = __action181(
@@ -24252,12 +24021,11 @@ fn __action185<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action186<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action186<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24269,7 +24037,8 @@ fn __action186<'input>(
     __3: (usize, &'input str, usize),
     __4: (usize, (&'input str, bool), usize),
     __5: (usize, f32, usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     let __start0 = __5.0;
     let __end0 = __5.2;
     let __temp0 = __action121(
@@ -24297,12 +24066,11 @@ fn __action186<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action187<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action187<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24313,7 +24081,8 @@ fn __action187<'input>(
     __2: (usize, (&'input str, bool), usize),
     __3: (usize, &'input str, usize),
     __4: (usize, (&'input str, bool), usize),
-) -> Box<Expr<'input>> {
+) -> Box<Expr<'input>>
+{
     let __start0 = __4.2;
     let __end0 = __4.2;
     let __temp0 = __action122(
@@ -24342,12 +24111,11 @@ fn __action187<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action188<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action188<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24355,7 +24123,8 @@ fn __action188<'input>(
     input: &'input str,
     __0: (usize, (&'input str, bool), usize),
     __1: (usize, f32, usize),
-) -> ProximityTerm {
+) -> ProximityTerm
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action121(
@@ -24379,19 +24148,19 @@ fn __action188<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action189<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action189<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, (&'input str, bool), usize),
-) -> ProximityTerm {
+) -> ProximityTerm
+{
     let __start0 = __0.2;
     let __end0 = __0.2;
     let __temp0 = __action122(
@@ -24416,12 +24185,11 @@ fn __action189<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action190<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action190<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24430,7 +24198,8 @@ fn __action190<'input>(
     __0: (usize, (&'input str, bool), usize),
     __1: (usize, u8, usize),
     __2: (usize, f32, usize),
-) -> ProximityTerm {
+) -> ProximityTerm
+{
     let __start0 = __2.0;
     let __end0 = __2.2;
     let __temp0 = __action121(
@@ -24455,12 +24224,11 @@ fn __action190<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action191<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action191<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24468,7 +24236,8 @@ fn __action191<'input>(
     input: &'input str,
     __0: (usize, (&'input str, bool), usize),
     __1: (usize, u8, usize),
-) -> ProximityTerm {
+) -> ProximityTerm
+{
     let __start0 = __1.2;
     let __end0 = __1.2;
     let __temp0 = __action122(
@@ -24494,12 +24263,11 @@ fn __action191<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action192<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action192<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24507,7 +24275,8 @@ fn __action192<'input>(
     input: &'input str,
     __0: (usize, (&'input str, bool), usize),
     __1: (usize, f32, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action121(
@@ -24531,19 +24300,19 @@ fn __action192<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action193<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action193<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, (&'input str, bool), usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __0.2;
     let __end0 = __0.2;
     let __temp0 = __action122(
@@ -24568,12 +24337,11 @@ fn __action193<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action194<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action194<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24582,7 +24350,8 @@ fn __action194<'input>(
     __0: (usize, (&'input str, bool), usize),
     __1: (usize, u8, usize),
     __2: (usize, f32, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __2.0;
     let __end0 = __2.2;
     let __temp0 = __action121(
@@ -24607,12 +24376,11 @@ fn __action194<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action195<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action195<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24620,7 +24388,8 @@ fn __action195<'input>(
     input: &'input str,
     __0: (usize, (&'input str, bool), usize),
     __1: (usize, u8, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __1.2;
     let __end0 = __1.2;
     let __temp0 = __action122(
@@ -24646,12 +24415,11 @@ fn __action195<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action196<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action196<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24660,7 +24428,8 @@ fn __action196<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, &'input str, usize),
     __2: (usize, f32, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __2.0;
     let __end0 = __2.2;
     let __temp0 = __action121(
@@ -24685,12 +24454,11 @@ fn __action196<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action197<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action197<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24698,7 +24466,8 @@ fn __action197<'input>(
     input: &'input str,
     __0: (usize, &'input str, usize),
     __1: (usize, &'input str, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __1.2;
     let __end0 = __1.2;
     let __temp0 = __action122(
@@ -24724,12 +24493,11 @@ fn __action197<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action198<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action198<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24739,7 +24507,8 @@ fn __action198<'input>(
     __1: (usize, alloc::vec::Vec<Term<'input>>, usize),
     __2: (usize, &'input str, usize),
     __3: (usize, f32, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __3.0;
     let __end0 = __3.2;
     let __temp0 = __action121(
@@ -24765,12 +24534,11 @@ fn __action198<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action199<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action199<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24779,7 +24547,8 @@ fn __action199<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, alloc::vec::Vec<Term<'input>>, usize),
     __2: (usize, &'input str, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __2.2;
     let __end0 = __2.2;
     let __temp0 = __action122(
@@ -24806,12 +24575,11 @@ fn __action199<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action200<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action200<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24819,7 +24587,8 @@ fn __action200<'input>(
     input: &'input str,
     __0: (usize, &'input str, usize),
     __1: (usize, f32, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action121(
@@ -24843,19 +24612,19 @@ fn __action200<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action201<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action201<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
     operator_stack: &mut Vec<ComparisonOpcode>,
     input: &'input str,
     __0: (usize, &'input str, usize),
-) -> Term<'input> {
+) -> Term<'input>
+{
     let __start0 = __0.2;
     let __end0 = __0.2;
     let __temp0 = __action122(
@@ -24880,12 +24649,11 @@ fn __action201<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action202<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action202<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24899,7 +24667,8 @@ fn __action202<'input>(
     __5: (usize, Box<Expr<'input>>, usize),
     __6: (usize, Box<Expr<'input>>, usize),
     __7: (usize, &'input str, usize),
-) -> Expr<'input> {
+) -> Expr<'input>
+{
     let __start0 = __6.0;
     let __end0 = __6.2;
     let __temp0 = __action114(
@@ -24929,12 +24698,11 @@ fn __action202<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action203<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action203<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24947,7 +24715,8 @@ fn __action203<'input>(
     __4: (usize, &'input str, usize),
     __5: (usize, Box<Expr<'input>>, usize),
     __6: (usize, &'input str, usize),
-) -> Expr<'input> {
+) -> Expr<'input>
+{
     let __start0 = __5.2;
     let __end0 = __6.0;
     let __temp0 = __action115(
@@ -24978,12 +24747,11 @@ fn __action203<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action204<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action204<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -24992,7 +24760,8 @@ fn __action204<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, String, usize),
     __2: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action109(
@@ -25017,12 +24786,11 @@ fn __action204<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action205<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action205<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -25030,7 +24798,8 @@ fn __action205<'input>(
     input: &'input str,
     __0: (usize, &'input str, usize),
     __1: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __0.2;
     let __end0 = __1.0;
     let __temp0 = __action110(
@@ -25056,12 +24825,11 @@ fn __action205<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action206<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action206<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -25071,7 +24839,8 @@ fn __action206<'input>(
     __1: (usize, alloc::vec::Vec<String>, usize),
     __2: (usize, String, usize),
     __3: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __2.0;
     let __end0 = __2.2;
     let __temp0 = __action109(
@@ -25097,12 +24866,11 @@ fn __action206<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action207<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action207<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -25111,7 +24879,8 @@ fn __action207<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, alloc::vec::Vec<String>, usize),
     __2: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __1.2;
     let __end0 = __2.0;
     let __temp0 = __action110(
@@ -25138,12 +24907,11 @@ fn __action207<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action208<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action208<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -25152,7 +24920,8 @@ fn __action208<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, String, usize),
     __2: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __1.0;
     let __end0 = __1.2;
     let __temp0 = __action104(
@@ -25177,12 +24946,11 @@ fn __action208<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action209<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action209<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -25190,7 +24958,8 @@ fn __action209<'input>(
     input: &'input str,
     __0: (usize, &'input str, usize),
     __1: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __0.2;
     let __end0 = __1.0;
     let __temp0 = __action105(
@@ -25216,12 +24985,11 @@ fn __action209<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action210<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action210<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -25231,7 +24999,8 @@ fn __action210<'input>(
     __1: (usize, alloc::vec::Vec<String>, usize),
     __2: (usize, String, usize),
     __3: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __2.0;
     let __end0 = __2.2;
     let __temp0 = __action104(
@@ -25257,12 +25026,11 @@ fn __action210<'input>(
 }
 
 #[allow(unused_variables)]
-#[allow(
-    clippy::too_many_arguments,
-    clippy::needless_lifetimes,
-    clippy::just_underscores_and_digits
-)]
-fn __action211<'input>(
+#[allow(clippy::too_many_arguments, clippy::needless_lifetimes,
+    clippy::just_underscores_and_digits)]
+fn __action211<
+    'input,
+>(
     source_index: Option<&PgRelation>,
     used_fields: &mut HashSet<&'input str>,
     fieldname_stack: &mut Vec<&'input str>,
@@ -25271,7 +25039,8 @@ fn __action211<'input>(
     __0: (usize, &'input str, usize),
     __1: (usize, alloc::vec::Vec<String>, usize),
     __2: (usize, &'input str, usize),
-) -> String {
+) -> String
+{
     let __start0 = __1.2;
     let __end0 = __2.0;
     let __temp0 = __action105(
@@ -25298,32 +25067,20 @@ fn __action211<'input>(
 }
 
 #[allow(clippy::type_complexity, dead_code)]
-pub trait __ToTriple<'input> {
-    fn to_triple(
-        self,
-    ) -> Result<
-        (usize, Token<'input>, usize),
-        __lalrpop_util::ParseError<usize, Token<'input>, &'static str>,
-    >;
+pub trait __ToTriple<'input, >
+{
+    fn to_triple(self) -> Result<(usize,Token<'input>,usize), __lalrpop_util::ParseError<usize, Token<'input>, &'static str>>;
 }
 
-impl<'input> __ToTriple<'input> for (usize, Token<'input>, usize) {
-    fn to_triple(
-        self,
-    ) -> Result<
-        (usize, Token<'input>, usize),
-        __lalrpop_util::ParseError<usize, Token<'input>, &'static str>,
-    > {
+impl<'input, > __ToTriple<'input, > for (usize, Token<'input>, usize)
+{
+    fn to_triple(self) -> Result<(usize,Token<'input>,usize), __lalrpop_util::ParseError<usize, Token<'input>, &'static str>> {
         Ok(self)
     }
 }
-impl<'input> __ToTriple<'input> for Result<(usize, Token<'input>, usize), &'static str> {
-    fn to_triple(
-        self,
-    ) -> Result<
-        (usize, Token<'input>, usize),
-        __lalrpop_util::ParseError<usize, Token<'input>, &'static str>,
-    > {
+impl<'input, > __ToTriple<'input, > for Result<(usize, Token<'input>, usize), &'static str>
+{
+    fn to_triple(self) -> Result<(usize,Token<'input>,usize), __lalrpop_util::ParseError<usize, Token<'input>, &'static str>> {
         self.map_err(|error| __lalrpop_util::ParseError::User { error })
     }
 }

@@ -147,7 +147,7 @@ fn do_heap_scan<'a>(
 #[pg_guard]
 pub extern "C" fn ambuildempty(_index_relation: pg_sys::Relation) {}
 
-#[cfg(any(feature = "pg12", feature = "pg13"))]
+#[cfg(feature = "pg13")]
 #[pg_guard]
 pub unsafe extern "C" fn aminsert(
     index_relation: pg_sys::Relation,
@@ -203,22 +203,6 @@ unsafe fn aminsert_internal(
     true
 }
 
-#[cfg(any(feature = "pg12"))]
-#[pg_guard]
-unsafe extern "C" fn build_callback(
-    _index: pg_sys::Relation,
-    htup: pg_sys::HeapTuple,
-    values: *mut pg_sys::Datum,
-    _isnull: *mut bool,
-    _tuple_is_alive: bool,
-    state: *mut std::os::raw::c_void,
-) {
-    let htup = htup.as_ref().unwrap();
-
-    build_callback_internal(htup.t_self, values, state);
-}
-
-#[cfg(any(feature = "pg13", feature = "pg14", feature = "pg15"))]
 #[pg_guard]
 unsafe extern "C" fn build_callback(
     _index: pg_sys::Relation,

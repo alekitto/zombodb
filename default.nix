@@ -69,9 +69,8 @@ naersk.lib."${targetPlatform.system}".buildPackage rec {
     cp -r -L ${postgresql_13.lib}/lib/. $out/.pgrx/13/lib/
 
     ${cargo-pgrx}/bin/cargo-pgrx pgrx init \
-      --pg12 $out/.pgrx/12/bin/pg_config \
-      --pg13 $out/.pgrx/13/bin/pg_config
-      --pg14 $out/.pgrx/14/bin/pg_config
+      --pg13 $out/.pgrx/13/bin/pg_config \
+      --pg14 $out/.pgrx/14/bin/pg_config \
       --pg15 $out/.pgrx/15/bin/pg_config
 
     # This is primarily for Mac or other Nix systems that don't use the nixbld user.

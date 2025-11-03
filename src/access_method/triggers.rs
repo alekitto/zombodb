@@ -138,7 +138,7 @@ unsafe fn maybe_find_hot_root(
 ) {
     if pg_sys::HeapTupleHeaderIsHeapOnly((*trigdata.tg_trigtuple).t_data) {
         let mut buf = 0 as pg_sys::Buffer;
-        #[cfg(any(feature = "pg12", feature = "pg13", feature = "pg14"))]
+        #[cfg(any(feature = "pg13", feature = "pg14"))]
         let found_tuple = pg_sys::heap_fetch(
             trigdata.tg_relation,
             pg_sys::GetTransactionSnapshot(),
